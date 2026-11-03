@@ -123,6 +123,50 @@ class CompositionTests(unittest.TestCase):
             outside = ImageChops.multiply(diff.convert('L'), ImageChops.invert(self.masks['hood']))
             self.assertIsNone(outside.getbbox())
 
+    def test_shared_background_continues_across_doors_without_restart(self):
+        # Red increases from front to rear across both doors on one common map.
+        art = Image.new('RGB', (512, 180))
+        for x in range(512):
+            ImageDraw.Draw(art).line((x, 0, x, 179), fill=(round(x * 255 / 511), 80, 150))
+        art.save(self.root / 'print.png')
+        design = {'base_color': '#fff2df', 'backgrounds': [{'image': 'print.png',
+                  'parts': ['left_front_door', 'left_rear_door'], 'rotation_cw': 90}]}
+        self.design.write_text(json.dumps(design), encoding='utf-8')
+        result = composer.compose(self.design, self.output)
+        with Image.open(self.output) as output:
+            self.assertGreater(output.getpixel((100, 570))[0], output.getpixel((100, 520))[0])
+            self.assertEqual(output.getpixel((512, 250)), (255, 242, 223, 255))
+            self.assertEqual(output.getchannel('A').tobytes(), self.template.getchannel('A').tobytes())
+        self.assertEqual(len(result['backgrounds']), 1)
+
+    def test_background_can_fill_an_island_edge_without_subject_safe_margin(self):
+        Image.new('RGB', (128, 128), (200, 70, 130)).save(self.root / 'print.png')
+        self.design.write_text(json.dumps({'backgrounds': [{'image': 'print.png', 'parts': ['hood']}]}), encoding='utf-8')
+        composer.compose(self.design, self.output)
+        mask = self.masks['hood']
+        edge = next((x, y) for y in range(151, 392) for x in range(362, 662)
+                    if mask.getpixel((x, y)) and not mask.getpixel((max(0, x-1), y)))
+        with Image.open(self.output) as output:
+            self.assertEqual(output.getpixel(edge)[:3], (200, 70, 130))
+            self.assertEqual(output.getpixel((512, 512))[3], 0)
+
+    def test_background_source_crop_selects_the_requested_print_band(self):
+        image = Image.new('RGB', (128, 128), 'red')
+        ImageDraw.Draw(image).rectangle((0, 64, 127, 127), fill='blue')
+        image.save(self.root / 'print.png')
+        self.design.write_text(json.dumps({'backgrounds': [{'image': 'print.png', 'parts': ['hood'],
+                                                           'source_box': [0, .5, 1, 1]}]}), encoding='utf-8')
+        composer.compose(self.design, self.output)
+        with Image.open(self.output) as output:
+            self.assertEqual(output.getpixel((512, 250))[:3], (0, 0, 255))
+
+    def test_background_rejects_unknown_parts(self):
+        Image.new('RGB', (32, 32), 'pink').save(self.root / 'print.png')
+        self.design.write_text(json.dumps({'backgrounds': [{'image': 'print.png', 'parts': ['unknown']}]}), encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'known part IDs'):
+            composer.compose(self.design, self.output)
+        self.assertFalse(self.output.exists())
+
 
 if __name__ == '__main__':
     unittest.main()

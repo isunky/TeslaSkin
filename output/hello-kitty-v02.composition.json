@@ -1,0 +1,306 @@
+{
+  "ok": true,
+  "canvas": [
+    1024,
+    1024
+  ],
+  "template_alpha_exact": true,
+  "viewing_convention": "outside-front/side-upright",
+  "backgrounds": [
+    {
+      "parts": [
+        "left_front_fender",
+        "left_front_door",
+        "left_rear_door",
+        "left_rear_quarter"
+      ],
+      "rotation_cw": 90,
+      "mirror": false,
+      "source_box": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "group_box": [
+        28,
+        9,
+        263,
+        946
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "9978f9f91f9333bdf72e5831374928592a4c28e7ec7df344a04c2cd25c6d01a2",
+      "image": "hello-kitty-v02-assets/side.png"
+    },
+    {
+      "parts": [
+        "right_front_fender",
+        "right_front_door",
+        "right_rear_door",
+        "right_rear_quarter"
+      ],
+      "rotation_cw": 270,
+      "mirror": true,
+      "source_box": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "group_box": [
+        765,
+        9,
+        998,
+        946
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "9978f9f91f9333bdf72e5831374928592a4c28e7ec7df344a04c2cd25c6d01a2",
+      "image": "hello-kitty-v02-assets/side.png"
+    },
+    {
+      "parts": [
+        "hood"
+      ],
+      "rotation_cw": 180,
+      "mirror": false,
+      "source_box": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "group_box": [
+        362,
+        151,
+        662,
+        392
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "0bf021f464ee8260c165210c2b2d9efbbe386688966211fe4fe3b7503f94d518",
+      "image": "hello-kitty-v02-assets/hood.png"
+    },
+    {
+      "parts": [
+        "rear_center"
+      ],
+      "rotation_cw": 0,
+      "mirror": false,
+      "source_box": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "group_box": [
+        303,
+        633,
+        721,
+        940
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "0bf021f464ee8260c165210c2b2d9efbbe386688966211fe4fe3b7503f94d518",
+      "image": "hello-kitty-v02-assets/hood.png"
+    },
+    {
+      "parts": [
+        "front_bumper"
+      ],
+      "rotation_cw": 0,
+      "mirror": false,
+      "source_box": [
+        0.12,
+        0.52,
+        0.88,
+        1
+      ],
+      "group_box": [
+        254,
+        9,
+        770,
+        149
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "9978f9f91f9333bdf72e5831374928592a4c28e7ec7df344a04c2cd25c6d01a2",
+      "image": "hello-kitty-v02-assets/side.png"
+    },
+    {
+      "parts": [
+        "rear_bumper"
+      ],
+      "rotation_cw": 0,
+      "mirror": false,
+      "source_box": [
+        0.12,
+        0.52,
+        0.88,
+        1
+      ],
+      "group_box": [
+        252,
+        890,
+        770,
+        1017
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "9978f9f91f9333bdf72e5831374928592a4c28e7ec7df344a04c2cd25c6d01a2",
+      "image": "hello-kitty-v02-assets/side.png"
+    },
+    {
+      "parts": [
+        "left_mirror",
+        "right_mirror"
+      ],
+      "rotation_cw": 0,
+      "mirror": false,
+      "source_box": [
+        0.15,
+        0,
+        0.35,
+        0.28
+      ],
+      "group_box": [
+        222,
+        406,
+        805,
+        448
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "9978f9f91f9333bdf72e5831374928592a4c28e7ec7df344a04c2cd25c6d01a2",
+      "image": "hello-kitty-v02-assets/side.png"
+    },
+    {
+      "parts": [
+        "left_rail"
+      ],
+      "rotation_cw": 90,
+      "mirror": false,
+      "source_box": [
+        0,
+        0,
+        1,
+        0.23
+      ],
+      "group_box": [
+        322,
+        141,
+        356,
+        631
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "9978f9f91f9333bdf72e5831374928592a4c28e7ec7df344a04c2cd25c6d01a2",
+      "image": "hello-kitty-v02-assets/side.png"
+    },
+    {
+      "parts": [
+        "right_rail"
+      ],
+      "rotation_cw": 270,
+      "mirror": true,
+      "source_box": [
+        0,
+        0,
+        1,
+        0.23
+      ],
+      "group_box": [
+        667,
+        141,
+        702,
+        631
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "9978f9f91f9333bdf72e5831374928592a4c28e7ec7df344a04c2cd25c6d01a2",
+      "image": "hello-kitty-v02-assets/side.png"
+    }
+  ],
+  "parts": {
+    "hood": [
+      {
+        "rotation_cw": 180,
+        "size": [
+          192,
+          142
+        ],
+        "center_px": [
+          512,
+          277
+        ],
+        "safe_inset": 10,
+        "fit_attempts": 4,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v02-assets/kitty.png",
+        "source_sha256": "3ba2455eabeb03e45a12e5107c8f1ef1336a023c0f2d996b31afc857ac86588e"
+      }
+    ],
+    "left_front_door": [
+      {
+        "rotation_cw": 90,
+        "size": [
+          116,
+          157
+        ],
+        "center_px": [
+          101,
+          412
+        ],
+        "safe_inset": 8,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v02-assets/kitty.png",
+        "source_sha256": "3ba2455eabeb03e45a12e5107c8f1ef1336a023c0f2d996b31afc857ac86588e"
+      }
+    ],
+    "right_front_door": [
+      {
+        "rotation_cw": 270,
+        "size": [
+          116,
+          157
+        ],
+        "center_px": [
+          926,
+          412
+        ],
+        "safe_inset": 8,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v02-assets/kitty.png",
+        "source_sha256": "3ba2455eabeb03e45a12e5107c8f1ef1336a023c0f2d996b31afc857ac86588e"
+      }
+    ],
+    "rear_center": [
+      {
+        "rotation_cw": 0,
+        "size": [
+          61,
+          45
+        ],
+        "center_px": [
+          512,
+          890
+        ],
+        "safe_inset": 6,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v02-assets/kitty.png",
+        "source_sha256": "3ba2455eabeb03e45a12e5107c8f1ef1336a023c0f2d996b31afc857ac86588e"
+      }
+    ]
+  },
+  "sha256": "7d46d05755cfe7446fd3d34db77aea379eaf3fe4bdd1e5fa840643c262ad9054",
+  "checks": {
+    "composition": "passed",
+    "file": "run validate_skin.py",
+    "visual": "manual_required",
+    "app_front": "pending",
+    "app_side": "pending",
+    "app_rear": "pending",
+    "vehicle": "pending"
+  },
+  "visual_review": {
+    "full_uv": "passed",
+    "shared_scale_flow_sheet": "passed",
+    "design": "Coordinated ribbon, floral, heart and gingham print; shared per-side background, protected face motifs.",
+    "note": "Not a 3D/App preview; actual App front/side/rear and vehicle remain pending."
+  }
+}

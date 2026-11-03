@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Place upright motif PNGs onto the immutable Model Y UV template.
 
-The JSON design contains base_color and parts: {part_id: [image layers]}.
+The JSON design contains base_color, optional shared backgrounds, and
+parts: {part_id: [foreground layers]}. Shared prints can flow across a group
+of adjacent UV islands; foreground subjects retain strict safety margins.
 Layer image paths are relative to the design JSON. Rotation defaults come from
 assets/parts.json. Geometry, safety margins and alpha are enforced by code.
 """
@@ -90,6 +92,54 @@ def number(value, low, high, label):
     return value
 
 
+def place_background(canvas, source, masks, spec):
+    names = spec.get('parts')
+    if not isinstance(names, list) or not names or len(set(names)) != len(names) or any(name not in masks for name in names):
+        raise ValueError('background parts must be a nonempty list of unique known part IDs')
+    rotation = spec.get('rotation_cw', 0)
+    if rotation not in (0, 90, 180, 270):
+        raise ValueError('background rotation_cw must be 0/90/180/270')
+    mirror = spec.get('mirror', False)
+    if not isinstance(mirror, bool):
+        raise ValueError('background mirror must be a boolean')
+    with Image.open(source) as original:
+        if original.format != 'PNG' or getattr(original, 'n_frames', 1) != 1:
+            raise ValueError('background artwork must be a single-frame PNG')
+        artwork = original.convert('RGBA')
+    source_box = spec.get('source_box', [0, 0, 1, 1])
+    if not isinstance(source_box, list) or len(source_box) != 4:
+        raise ValueError('source_box must be [left, top, right, bottom]')
+    u0, v0, u1, v1 = [number(n, 0, 1, 'source_box') for n in source_box]
+    if u0 >= u1 or v0 >= v1:
+        raise ValueError('source_box must have positive area')
+    crop = tuple(round(n * length) for n, length in zip(source_box, (artwork.width, artwork.height) * 2))
+    if crop[0] >= crop[2] or crop[1] >= crop[3]:
+        raise ValueError('source_box rounds to an empty crop')
+    artwork = artwork.crop(crop)
+    if mirror:
+        artwork = ImageOps.mirror(artwork)
+    artwork = artwork.rotate(-rotation, expand=True)
+    union, blocked = Image.new('L', canvas.size), Image.new('L', canvas.size)
+    for name, mask in masks.items():
+        if name in names:
+            union = ImageChops.lighter(union, mask)
+        else:
+            blocked = ImageChops.lighter(blocked, mask)
+    bounds = union.getbbox()
+    # The full group shares one artwork transform; never restart the pattern at
+    # each island. A two-pixel RGB bleed fills guide edges but not other islands.
+    allowed = ImageChops.multiply(union.filter(ImageFilter.MaxFilter(5)), ImageChops.invert(blocked))
+    x0, y0, x1, y1 = bounds
+    print_image = ImageOps.fit(artwork, (x1 - x0 + 4, y1 - y0 + 4), Image.Resampling.LANCZOS)
+    patch = Image.new('RGBA', canvas.size)
+    patch.paste(print_image, (x0 - 2, y0 - 2))
+    patch.putalpha(ImageChops.multiply(patch.getchannel('A'), allowed))
+    canvas.alpha_composite(patch)
+    return {'parts': names, 'rotation_cw': rotation, 'mirror': mirror,
+            'source_box': source_box, 'group_box': list(bounds), 'edge_bleed_px': 2,
+            'source_sha256': hashlib.sha256(Path(source).read_bytes()).hexdigest()}
+
+
 def place_layer(canvas, motif, mask, part, layer):
     inset = part['inset']
     safe = mask.filter(ImageFilter.MinFilter(2 * inset + 1))
@@ -147,20 +197,23 @@ def review_board(image, parts, masks, destination):
     draw = ImageDraw.Draw(board)
     font = ImageFont.load_default()
     draw.text((24, 16), 'UV orientation proof - NOT a 3D / Tesla App preview. Actual App front/side/rear views still pending.', fill='#182b39', font=font)
-    groups = [('HOOD / outside front', ['hood']), ('TEMPLATE LEFT SIDE', ['left_front_door', 'left_rear_door', 'left_rear_quarter']),
-              ('TEMPLATE RIGHT SIDE', ['right_front_door', 'right_rear_door', 'right_rear_quarter']), ('REAR / mapping pending', ['rear_center'])]
+    groups = [('HOOD / outside front', ['hood']), ('LEFT SIDE / common UV scale', ['left_front_fender', 'left_front_door', 'left_rear_door', 'left_rear_quarter']),
+              ('RIGHT SIDE / common UV scale', ['right_front_fender', 'right_front_door', 'right_rear_door', 'right_rear_quarter']), ('REAR / mapping pending', ['rear_center'])]
     for index, (title, names) in enumerate(groups):
         ox, oy = (index % 2) * 600, 52 + (index // 2) * 344
         draw.rounded_rectangle((ox + 12, oy, ox + 588, oy + 330), 12, fill='white')
         draw.text((ox + 24, oy + 14), title, fill='#182b39', font=font)
-        panel_w = 544 // len(names)
-        for i, name in enumerate(names):
-            crop = image.copy()
-            crop.putalpha(masks[name])
-            crop = crop.crop(masks[name].getbbox()).rotate(parts[name]['rotation_cw'], expand=True)
-            crop.thumbnail((panel_w - 12, 250), Image.Resampling.LANCZOS)
-            px = ox + 28 + i * panel_w + (panel_w - crop.width) // 2
-            board.paste(crop, (px, oy + 46), crop)
+        union = Image.new('L', image.size)
+        for name in names:
+            union = ImageChops.lighter(union, masks[name])
+        crop = image.copy()
+        crop.putalpha(union)
+        crop = crop.crop(union.getbbox()).rotate(parts[names[0]]['rotation_cw'], expand=True)
+        # Preserve the common UV scale and relative positions of the group.
+        # Resizing each island separately hides discontinuities in shared prints.
+        crop.thumbnail((544, 260), Image.Resampling.LANCZOS)
+        px, py = ox + 28 + (544 - crop.width) // 2, oy + 46 + (260 - crop.height) // 2
+        board.paste(crop, (px, py), crop)
     with Path(destination).open('xb') as output:
         board.save(output, format='PNG', optimize=True)
 
@@ -185,6 +238,19 @@ def compose(design_path, output_path, report_path=None, review_path=None):
     canvas = Image.new('RGBA', template.size, design.get('base_color', '#fff2df'))
     if canvas.getchannel('A').getextrema() != (255, 255):
         raise ValueError('base_color must be opaque')
+    backgrounds = design.get('backgrounds', [])
+    if not isinstance(backgrounds, list):
+        raise ValueError('backgrounds must be a list')
+    background_records = []
+    for background in backgrounds:
+        if not isinstance(background, dict):
+            raise ValueError('each background must be an object')
+        source = (design_path.parent / background['image']).resolve()
+        if source in {p.resolve() for p in paths}:
+            raise ValueError('output paths cannot replace background artwork')
+        record = place_background(canvas, source, masks, background)
+        record['image'] = background['image']
+        background_records.append(record)
     cache, applied = {}, {}
     for name, layers in supplied.items():
         if not isinstance(layers, list):
@@ -209,7 +275,7 @@ def compose(design_path, output_path, report_path=None, review_path=None):
     with output_path.open('xb') as output:
         canvas.save(output, format='PNG', optimize=True)
     result = {'ok': True, 'canvas': [1024, 1024], 'template_alpha_exact': True,
-              'viewing_convention': 'outside-front/side-upright', 'parts': applied,
+              'viewing_convention': 'outside-front/side-upright', 'backgrounds': background_records, 'parts': applied,
               'sha256': hashlib.sha256(output_path.read_bytes()).hexdigest(),
               'checks': {'composition': 'passed', 'file': 'run validate_skin.py', 'visual': 'manual_required',
                          'app_front': 'pending', 'app_side': 'pending', 'app_rear': 'pending', 'vehicle': 'pending'}}

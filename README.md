@@ -4,13 +4,13 @@
 
 <p align="center">
   <strong>用一句主题描述，开始制作你的 Model Y 车机皮肤。</strong><br />
-  AI 图案 · 固定白版合成 · 分区旋转 · 边缘清理 · 压缩校验
+  整体构图 · 连贯背景 · 固定白版合成 · 分区旋转 · 压缩校验
 </p>
 
 <p align="center">
   <a href="skills/tesla-skin-generator/SKILL.md"><img src="https://img.shields.io/badge/Agent_Skill-tesla--skin--generator-17232d?style=flat-square&amp;labelColor=101820" alt="Agent Skill" /></a>
   <img src="https://img.shields.io/badge/Vehicle-Model_Y-e9b77f?style=flat-square&amp;labelColor=17232d" alt="Model Y" />
-  <a href="tests/"><img src="https://img.shields.io/badge/Local_tests-30_passed-7eaa91?style=flat-square&amp;labelColor=17232d" alt="30 local tests passed" /></a>
+  <a href="tests/"><img src="https://img.shields.io/badge/Local_tests-34_passed-7eaa91?style=flat-square&amp;labelColor=17232d" alt="34 local tests passed" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-9daab5?style=flat-square&amp;labelColor=17232d" alt="Apache 2.0" /></a>
 </p>
 
@@ -26,13 +26,13 @@
 
 > 用 `$tesla-skin-generator` 生成一款奶油白底、橘猫主题、简洁可爱的 Model Y 皮肤。
 
-TeslaSkin 是运行在支持 Agent Skills 和内置生图能力环境中的技能。你只需描述想要的设计，无需每次上传白版或准备风格参考图。AI 负责生成图案，程序负责在 Model Y 固定白版上旋转、排布和导出，减少模型不执行尺寸、方向或轮廓约束的问题。
+TeslaSkin 是运行在支持 Agent Skills 和内置生图能力环境中的技能。你只需描述想要的设计，无需每次上传白版或准备风格参考图。先设计整车的配色、主视觉和贯穿纹样，再由 AI 生成画稿；程序负责在固定白版上连续排布背景、旋转主体和导出，减少模型不执行尺寸、方向或轮廓约束的问题。
 
 | 描述主题 | 生成与修改 | 检查与交付 |
 | :--- | :--- | :--- |
 | 说出风格、配色和元素，默认制作一款 | AI 生成正立透明素材，程序固定分区旋转与安全排布 | 清理边缘、必要时压缩并校验，保留素材、设计 JSON 与提示词 |
 
-> **当前状态：30 项本地测试通过。** 最新 v03 已通过文件、结构和边缘检查（1024×1024，169,255 字节），并完成平面方向人工复核。旧版已有用户提供的 Tesla App 展示反馈；新版本的 App 车前、车侧、车后及实车效果仍待确认。详见[验收记录](output/validation-summary.md)。
+> **当前状态：34 项本地测试通过。** 橘猫 v03 和 Hello Kitty 连贯背景版均通过文件、结构及边缘检查，完成平面方向与构图复核。旧版已有用户提供的 Tesla App 展示反馈；新版本的 App 前/侧/后及实车效果仍待确认。详见[验收记录](output/validation-summary.md)。
 
 ### 为什么推荐 ChatGPT
 
@@ -118,6 +118,18 @@ output/
 
 ## 生成示例与实测状态
 
+### 连贯背景设计：Hello Kitty
+
+通过一条贯穿丝带组织主体、花朵、爱心与格纹的层级。同侧翼子板、前后门和后侧围共享一幅画稿，花纹不会在每块部件重新起图；脸部继续保留安全边距。装饰可以满版、跨分区延续，避免所有部件都以同样大小居中摆一个孤立图标。
+
+![Hello Kitty 连贯背景与同尺度分区检查图](output/hello-kitty-v02-flow.png)
+
+[皮肤 PNG](output/hello-kitty-v02.png) · [设计 JSON](output/hello-kitty-v02.design.json) · [生成记录](output/hello-kitty-v02.prompt.txt)
+
+1024×1024、866,170 字节，无需压缩；原模板 alpha 保持一致，越界杂点及车身区域遗漏为 0。上图是平面 UV 方向和构图检查，不是 3D/App 预览；实际车模跨缝效果仍待确认。
+
+### 固定白版示例：橘猫
+
 <table>
   <tr>
     <td align="center" width="50%"><strong>内置白版 · 几何基准</strong></td>
@@ -173,7 +185,7 @@ output/
 
 ### 固定白版合成
 
-制作好正立透明图案后，用设计 JSON 配置部件及图层。图片路径相对于 JSON；默认旋转由技能内置配置执行，不依赖生图提示词是否被模型遵守。
+制作好背景画稿和正立透明主体后，用设计 JSON 配置 `backgrounds`（共享背景）及 `parts`（受保护主体）。同一组相邻部件共用一个背景缩放/定位，主体单独保留安全区；图片路径相对于 JSON。
 
 ```powershell
 python skills/tesla-skin-generator/scripts/compose_skin.py output/orange-cat-v03.design.json output/orange-cat-v04.png --report output/orange-cat-v04.composition.json --review output/orange-cat-v04-review.png
@@ -181,6 +193,8 @@ python skills/tesla-skin-generator/scripts/validate_skin.py output/orange-cat-v0
 ```
 
 设计字段、部件 ID、安全区及人工复核步骤见[合成说明](skills/tesla-skin-generator/references/design.md)。
+
+丰富程度按主题及用户偏好调整。安全区用于保护脸部和文字，不要求所有装饰缩进，也不要求每个部件都放一个图标。背景可以有意裁切到边，最终 alpha 仍由原模板固定。
 
 ### 超限时自动压缩
 
@@ -219,7 +233,7 @@ python skills/tesla-skin-generator/scripts/validate_skin.py output/orange-cat-v0
 python -m unittest discover -s tests -v
 ```
 
-目前包含 30 项测试：8 项合成、8 项压缩和 14 项文件校验，覆盖实际图案旋转、16 个独立分区、安全边距、修改局部保留其他部位、弱透明杂点、原始 alpha、色彩配置、超限失败和版本保护。文件、结构、图案人工检查、App 前/侧/后及实车状态分别记录。
+目前包含 34 项测试：12 项合成、8 项压缩和 14 项文件校验。新增检查跨门板背景不重新起图、满版背景与主体安全区分离、纹样带裁切及非法背景分区；原有方向、透明度、压缩及版本保护检查保留。文件、结构、图案人工检查、App 前/侧/后及实车状态分别记录。
 
 ## 项目结构
 
