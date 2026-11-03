@@ -4,13 +4,13 @@
 
 <p align="center">
   <strong>用一句主题描述，开始制作你的 Model Y 车机皮肤。</strong><br />
-  内置白版 · 文字生图 · 对话修改 · 超限压缩 · 文件校验
+  AI 图案 · 固定白版合成 · 分区旋转 · 边缘清理 · 压缩校验
 </p>
 
 <p align="center">
   <a href="skills/tesla-skin-generator/SKILL.md"><img src="https://img.shields.io/badge/Agent_Skill-tesla--skin--generator-17232d?style=flat-square&amp;labelColor=101820" alt="Agent Skill" /></a>
   <img src="https://img.shields.io/badge/Vehicle-Model_Y-e9b77f?style=flat-square&amp;labelColor=17232d" alt="Model Y" />
-  <a href="tests/"><img src="https://img.shields.io/badge/Local_tests-18_passed-7eaa91?style=flat-square&amp;labelColor=17232d" alt="18 local tests passed" /></a>
+  <a href="tests/"><img src="https://img.shields.io/badge/Local_tests-30_passed-7eaa91?style=flat-square&amp;labelColor=17232d" alt="30 local tests passed" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-9daab5?style=flat-square&amp;labelColor=17232d" alt="Apache 2.0" /></a>
 </p>
 
@@ -26,17 +26,17 @@
 
 > 用 `$tesla-skin-generator` 生成一款奶油白底、橘猫主题、简洁可爱的 Model Y 皮肤。
 
-TeslaSkin 是运行在支持 Agent Skills 和内置生图能力环境中的技能。它将主题描述、Model Y 固定贴图模板、分区方向规则和文件检查串成一套制作流程。你只需描述想要的设计，无需每次上传白版或准备风格参考图。
+TeslaSkin 是运行在支持 Agent Skills 和内置生图能力环境中的技能。你只需描述想要的设计，无需每次上传白版或准备风格参考图。AI 负责生成图案，程序负责在 Model Y 固定白版上旋转、排布和导出，减少模型不执行尺寸、方向或轮廓约束的问题。
 
 | 描述主题 | 生成与修改 | 检查与交付 |
 | :--- | :--- | :--- |
-| 说出风格、配色和元素，默认制作一款 | 基于内置白版生图，通过对话继续调整 | 超限时先压缩，再检查尺寸、体积和透明范围，保留原图与提示词 |
+| 说出风格、配色和元素，默认制作一款 | AI 生成正立透明素材，程序固定分区旋转与安全排布 | 清理边缘、必要时压缩并校验，保留素材、设计 JSON 与提示词 |
 
-> **当前状态：实验性。** 技能、压缩与检查脚本已可使用，18 项本地测试通过。下方保留原始生图实测记录；压缩步骤用于解决文件体积，不修复尺寸、方向或轮廓。当前示例仍是候选图，尚无通过全部检查的上车成品。详见[验收记录](output/validation-summary.md)。
+> **当前状态：30 项本地测试通过。** 最新 v03 已通过文件、结构和边缘检查（1024×1024，169,255 字节），并完成平面方向人工复核。旧版已有用户提供的 Tesla App 展示反馈；新版本的 App 车前、车侧、车后及实车效果仍待确认。详见[验收记录](output/validation-summary.md)。
 
 ### 为什么推荐 ChatGPT
 
-- **文字和白版一起处理。** 本技能围绕 ChatGPT 的原生生图、图片编辑和对话式修改流程设计，并已在当前环境实测，可直接将内置白版作为结构约束。
+- **图案创作和固定白版衔接。** 本技能围绕 ChatGPT 的原生生图、图片编辑和对话式修改流程设计，并已在当前环境实测，可把生成的图案接入固定白版合成器。
 - **在同一对话中持续调整。** 从“生成橘猫主题”到“只改引擎盖”，可以接续已有作品与修改要求，减少在多个工具间搬运图片、重复说明设计的操作。
 - **将生成与交付衔接起来。** 具备文件处理及 Python 执行能力的环境，可继续运行随包的压缩和校验脚本，保留版本、提示词和处理报告。
 
@@ -106,31 +106,45 @@ cp -R skills/tesla-skin-generator "${CODEX_HOME:-$HOME/.codex}/skills/"
 
 ```text
 output/
-├── orange-cat-v01.png
-├── orange-cat-v01.prompt.txt
-└── orange-cat-v01.validation.json
+├── orange-cat-v03-assets/          # 独立图案，后续修改可复用
+├── orange-cat-v03.design.json      # 分区排布和底色
+├── orange-cat-v03.png              # 车机用 PNG
+├── orange-cat-v03.prompt.txt
+├── orange-cat-v03.composition.json
+└── orange-cat-v03.validation.json
 ```
 
-文件超过 1,000,000 字节时先进行压缩，保留原图，并重新检查压缩后的文件。其他检查失败时最多做一次定向生图修正，保留前一版本。仍不合格的图片会明确标注为候选图。
+排布问题通过设计 JSON 修正，避免整套随机重画；素材问题最多进行一次定向生图修正。最终皮肤超过 1,000,000 字节时先压缩、保留原图，再检查实际交付文件；源素材不受车机导出文件的体积限制。
 
 ## 生成示例与实测状态
 
 <table>
   <tr>
     <td align="center" width="50%"><strong>内置白版 · 几何基准</strong></td>
-    <td align="center" width="50%"><strong>橘猫主题 · 修正后候选图</strong></td>
+    <td align="center" width="50%"><strong>橘猫 v03 · 固定白版合成</strong></td>
   </tr>
   <tr>
     <td align="center"><img src="skills/tesla-skin-generator/assets/template.png" alt="1024×1024 Model Y 白版，包含 16 个主要白色分区和透明留空" width="390" /></td>
-    <td align="center"><img src="output/orange-cat-v02.png" alt="奶油白与橘猫主题候选图，尚未通过文件及方向检查" width="390" /></td>
+    <td align="center"><img src="output/orange-cat-v03.png" alt="橘猫 v03，已固定引擎盖及左右侧方向、移除导向描边并保留模板透明轮廓" width="390" /></td>
   </tr>
   <tr>
     <td align="center">1024 × 1024 · 16 个主要白色分区</td>
-    <td align="center">未通过检查 · 仅展示设计方向</td>
+    <td align="center">文件检查通过 · App / 实车待确认</td>
   </tr>
 </table>
 
-2026-11-03 使用内置生图工具实测：
+**分区方向检查图**（平面图案复核，不是 3D 或 App 效果预览）：
+
+![引擎盖、两侧及后部方向检查](output/orange-cat-v03-review.png)
+
+最新 v03：1024×1024、169,255 字节；模板 alpha 逐字节一致，越界可见像素、弱透明杂点和车身遗漏均为 0。引擎盖默认旋转 180°，展开图左侧 90°、右侧 270°，以车外观看时正立为优先。俯视控制页与车头外部观看无法保证同一方向都正立，可按用户偏好调整约定。
+
+用户提供的旧版 App 截图确认了引擎盖倒向、门板横躺及边缘紫线问题；新流程改由程序定向排布，加入安全区和边缘清理。旧截图不作为新版本的 App 通过证据。原始截图未收入仓库。
+
+<details>
+<summary>首次整张 UV 生图的历史记录</summary>
+
+2026-11-03 早期直接生整张 UV 图的结果如下；现已改为独立素材 + 固定白版合成：
 
 | 检查项 | 目标 | 修正后结果 |
 | :--- | :--- | :--- |
@@ -142,16 +156,31 @@ output/
 
 生图提示词中的约束不代表模型一定执行。脚本负责文件与几何检查，图案方向、接缝及最终车机效果仍需分别确认。
 
+</details>
+
 ## 模板规则
 
 - **白版是几何基准。** 固定部位位置、轮廓、细条和透明留空；中心透明洞不能被当作车顶补图。
 - **方向按部位处理。** 展开图左右仅指画布位置，不直接推断驾驶员侧；样例中未验证的实际部位对应已单独标记。
+- **图案保留安全区。** 引擎盖内缩 10 像素，主要门板/侧围内缩 8 像素；门板靠窗侧额外留出 20% 放置宽度。这是设计安全边距，不是精确门把手 UV 校准。
+- **轮廓和导向线分离。** 成品继承白版 alpha，原模板 RGB 黑色导向描边不绘入车漆；压缩也不将透明边缘底下的 RGB 主动填黑。
 - **参考图只帮助理解结构。** `Sample/` 中部分作品的尺寸、透明区和方向不同，不用于替换白版，也不默认继承其风格或角色。
 - **只适配当前白版。** 其他年份或车型需要对应模板，不能通过拉伸套用。
 
 完整坐标、方向证据与限制见 [布局规则](skills/tesla-skin-generator/references/layout.md)。
 
 ## 检查与测试
+
+### 固定白版合成
+
+制作好正立透明图案后，用设计 JSON 配置部件及图层。图片路径相对于 JSON；默认旋转由技能内置配置执行，不依赖生图提示词是否被模型遵守。
+
+```powershell
+python skills/tesla-skin-generator/scripts/compose_skin.py output/orange-cat-v03.design.json output/orange-cat-v04.png --report output/orange-cat-v04.composition.json --review output/orange-cat-v04-review.png
+python skills/tesla-skin-generator/scripts/validate_skin.py output/orange-cat-v04.png --report output/orange-cat-v04.validation.json
+```
+
+设计字段、部件 ID、安全区及人工复核步骤见[合成说明](skills/tesla-skin-generator/references/design.md)。
 
 ### 超限时自动压缩
 
@@ -173,13 +202,13 @@ python skills/tesla-skin-generator/scripts/validate_skin.py output/orange-cat-v0
 检查一张生成图：
 
 ```powershell
-python skills/tesla-skin-generator/scripts/validate_skin.py output/orange-cat-v02.png
+python skills/tesla-skin-generator/scripts/validate_skin.py output/orange-cat-v03.png
 ```
 
 另存 JSON 检查报告：
 
 ```powershell
-python skills/tesla-skin-generator/scripts/validate_skin.py output/orange-cat-v02.png --report output/review.json
+python skills/tesla-skin-generator/scripts/validate_skin.py output/orange-cat-v03.png --report output/review.json
 ```
 
 脚本不修改图片，不覆盖已有报告。退出码 `0` 表示文件检查通过，`1` 表示图片或模板不合格，`2` 表示命令、依赖或报告保存错误。
@@ -190,7 +219,7 @@ python skills/tesla-skin-generator/scripts/validate_skin.py output/orange-cat-v0
 python -m unittest discover -s tests -v
 ```
 
-目前包含 18 项测试：11 项文件与几何校验，以及 7 项压缩回归，覆盖无损像素保留、颜色量化、完整 alpha 保留、超限失败、禁止覆盖、非法格式和报告保存。
+目前包含 30 项测试：8 项合成、8 项压缩和 14 项文件校验，覆盖实际图案旋转、16 个独立分区、安全边距、修改局部保留其他部位、弱透明杂点、原始 alpha、色彩配置、超限失败和版本保护。文件、结构、图案人工检查、App 前/侧/后及实车状态分别记录。
 
 ## 项目结构
 
@@ -200,8 +229,11 @@ TeslaSkin/
 │   ├── SKILL.md                # 制作流程与交付规则
 │   ├── agents/openai.yaml      # 技能名称与默认调用提示
 │   ├── assets/template.png     # 独立打包的固定白版
+│   ├── assets/parts.json       # 分区种子、旋转和安全边距
 │   ├── references/layout.md    # 分区、方向、规格与实测限制
+│   ├── references/design.md    # 合成流程与设计 JSON
 │   └── scripts/
+│       ├── compose_skin.py      # 图案定向排布与透明轮廓合成
 │       ├── compress_skin.py     # 超限压缩，保留尺寸与 alpha
 │       └── validate_skin.py     # 文件与透明轮廓检查
 ├── tests/                      # 文件与几何检查回归测试

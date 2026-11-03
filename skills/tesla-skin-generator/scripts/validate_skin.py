@@ -30,7 +30,9 @@ def check_skin(path, template=DEFAULT_TEMPLATE):
     path, template = Path(path), Path(template)
     result = {'ok': False, 'file': str(path.resolve()), 'errors': [],
               'warnings': ['File checks do not verify artwork direction, seams or in-car appearance.'],
-              'metrics': {}}
+              'metrics': {}, 'checks': {'file': 'pending', 'geometry': 'pending', 'edge': 'pending',
+                                       'artwork_direction': 'manual_required', 'app_front': 'pending',
+                                       'app_side': 'pending', 'app_rear': 'pending', 'vehicle': 'pending'}}
     errors, metrics = result['errors'], result['metrics']
     if not re.fullmatch(r'[A-Za-z0-9 _-]+\.[Pp][Nn][Gg]', path.name) or len(path.name) > 30:
         errors.append('filename: use .png and ASCII letters/digits/spaces/_/-, max 30 characters including extension')
@@ -48,8 +50,6 @@ def check_skin(path, template=DEFAULT_TEMPLATE):
             if source.size != SIZE:
                 errors.append(f'dimensions: expected {SIZE[0]}x{SIZE[1]}')
             source.load()  # Check full decoding, including truncated pixel data.
-            if source.size != SIZE:
-                return result
             skin = source.convert('RGBA')
     except (OSError, ValueError, Image.DecompressionBombError) as exc:
         errors.append(f'read: {exc}')
@@ -67,6 +67,12 @@ def check_skin(path, template=DEFAULT_TEMPLATE):
 
     alpha = skin.getchannel('A')
     expected_alpha = baseline.getchannel('A')
+    if skin.size != SIZE:
+        # Still diagnose exported fringe at native resolution; do not claim UV fit.
+        metrics['diagnostic_only'] = True
+        baseline = baseline.resize(skin.size, Image.Resampling.NEAREST)
+        expected_alpha = baseline.getchannel('A')
+        result['warnings'].append('Geometry metrics use a scaled template for diagnosis only; wrong dimensions remain a failure.')
     expected_visible = expected_alpha.point(lambda p: 255 if p >= ALPHA_VISIBLE else 0)
     allowed_count = expected_visible.histogram()[255]
     if allowed_count == 0 or allowed_count == SIZE[0] * SIZE[1]:
@@ -77,6 +83,15 @@ def check_skin(path, template=DEFAULT_TEMPLATE):
     metrics['outside_pixels'] = outside.histogram()[255]
     if metrics['outside_pixels'] > MAX_OUTSIDE_PIXELS:
         errors.append(f'transparency: {metrics["outside_pixels"]} visible pixels outside template (max {MAX_OUTSIDE_PIXELS})')
+
+    # Faint stray alpha (<16) was invisible to the old threshold and can still
+    # produce colored seams in texture sampling. Check all nonzero alpha outside.
+    absent = expected_alpha.point(lambda p: 255 if p == 0 else 0)
+    stray = ImageChops.multiply(alpha.point(lambda p: 255 if p > 0 else 0), absent)
+    metrics['stray_alpha_pixels'] = stray.histogram()[255]
+    if metrics['stray_alpha_pixels'] > MAX_OUTSIDE_PIXELS:
+        errors.append(f'edge: {metrics["stray_alpha_pixels"]} nonzero-alpha pixels in fully transparent template gaps')
+    result['checks']['edge'] = 'failed' if metrics['stray_alpha_pixels'] > MAX_OUTSIDE_PIXELS else 'passed'
 
     # Opaque paint interiors must stay opaque; transparent white padding is not paint.
     red, green, blue, _ = baseline.split()
@@ -95,6 +110,9 @@ def check_skin(path, template=DEFAULT_TEMPLATE):
         errors.append('transparency: expected fully transparent gaps')
     if metrics['outside_pixels'] or metrics['missing_body_pixels']:
         result['warnings'].append('Nonzero shape differences: review contour edges even when within the antialias tolerance.')
+    geometric_errors = ('dimensions:', 'transparency:', 'coverage:', 'template:')
+    result['checks']['geometry'] = 'failed' if any(e.startswith(geometric_errors) for e in errors) else 'passed'
+    result['checks']['file'] = 'failed' if any(e.startswith(('file_size:', 'filename:', 'format:', 'dimensions:')) for e in errors) else 'passed'
     result['ok'] = not errors
     return result
 

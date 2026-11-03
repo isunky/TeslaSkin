@@ -1,0 +1,22 @@
+{
+  "template_sha256": "145e56ff1d9d3d5d3c3bac4ce1b331387858cb3ee7f17dce7d1de2100bf42a4b",
+  "viewing_convention": "upright when viewing from outside the front/side of the vehicle; not top-down UI",
+  "parts": {
+    "front_bumper": {"seed": [512, 60], "rotation_cw": 0, "inset": 6},
+    "hood": {"seed": [512, 250], "rotation_cw": 180, "inset": 10},
+    "left_front_fender": {"seed": [180, 180], "rotation_cw": 90, "inset": 8},
+    "right_front_fender": {"seed": [844, 180], "rotation_cw": 270, "inset": 8},
+    "left_front_door": {"seed": [100, 400], "rotation_cw": 90, "inset": 8, "window_edge": "right"},
+    "right_front_door": {"seed": [924, 400], "rotation_cw": 270, "inset": 8, "window_edge": "left"},
+    "left_rear_door": {"seed": [120, 640], "rotation_cw": 90, "inset": 8, "window_edge": "right"},
+    "right_rear_door": {"seed": [900, 640], "rotation_cw": 270, "inset": 8, "window_edge": "left"},
+    "left_rear_quarter": {"seed": [180, 860], "rotation_cw": 90, "inset": 8},
+    "right_rear_quarter": {"seed": [844, 860], "rotation_cw": 270, "inset": 8},
+    "left_rail": {"seed": [335, 400], "rotation_cw": 90, "inset": 3},
+    "right_rail": {"seed": [690, 400], "rotation_cw": 270, "inset": 3},
+    "left_mirror": {"seed": [260, 430], "rotation_cw": 90, "inset": 4},
+    "right_mirror": {"seed": [765, 430], "rotation_cw": 270, "inset": 4},
+    "rear_center": {"seed": [512, 890], "rotation_cw": 0, "inset": 6, "placement_box": [0.25, 0.72, 0.75, 0.98]},
+    "rear_bumper": {"seed": [512, 970], "rotation_cw": 0, "inset": 4}
+  }
+}

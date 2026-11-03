@@ -49,6 +49,29 @@ class SkinValidationTests(unittest.TestCase):
         self.image.save(self.path)
         self.assertTrue(any('transparency:' in e for e in self.check()['errors']))
 
+    def test_faint_fringe_below_old_visibility_threshold(self):
+        self.image.paste((255, 0, 255, 5), (450, 450, 480, 480))
+        self.image.save(self.path)
+        result = self.check()
+        self.assertFalse(result['ok'])
+        self.assertGreaterEqual(result['metrics']['stray_alpha_pixels'], 900)
+        self.assertEqual(result['checks']['edge'], 'failed')
+
+    def test_wrong_dimensions_still_diagnoses_fringe(self):
+        self.image.resize((512, 512)).save(self.path)
+        result = self.check()
+        self.assertFalse(result['ok'])
+        self.assertTrue(result['metrics']['diagnostic_only'])
+        self.assertIn('stray_alpha_pixels', result['metrics'])
+
+    def test_file_pass_does_not_claim_app_or_vehicle_validation(self):
+        self.image.save(self.path)
+        result = self.check()
+        self.assertTrue(result['ok'])
+        self.assertEqual(result['checks']['artwork_direction'], 'manual_required')
+        self.assertEqual(result['checks']['app_side'], 'pending')
+        self.assertEqual(result['checks']['vehicle'], 'pending')
+
     def test_empty_transparent_image(self):
         Image.new('RGBA', (1024, 1024)).save(self.path)
         self.assertTrue(any('coverage:' in e for e in self.check()['errors']))

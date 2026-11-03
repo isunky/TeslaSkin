@@ -82,6 +82,17 @@ class CompressionTests(unittest.TestCase):
             compressor.compress_png(self.source, self.output)
         self.assertFalse(self.output.exists())
 
+    def test_quantized_transparent_edge_rgb_is_not_replaced_with_black(self):
+        rng = random.Random(17)
+        image = Image.frombytes('RGB', (384, 384), rng.randbytes(384 * 384 * 3)).convert('RGBA')
+        image.paste((255, 240, 220, 0), (0, 0, 192, 384))
+        image.save(self.source)
+        result = compressor.compress_png(self.source, self.output, max_bytes=220_000)
+        self.assertTrue(result['lossy_rgb'])
+        with Image.open(self.output) as output:
+            self.assertEqual(output.getpixel((20, 20))[3], 0)
+            self.assertGreater(min(output.getpixel((20, 20))[:3]), 180)
+
     def test_cli_report_and_size_failure_are_distinct(self):
         self.image.save(self.source)
         report = self.output.with_suffix('.compression.json')

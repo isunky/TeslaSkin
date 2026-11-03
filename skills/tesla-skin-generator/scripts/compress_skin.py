@@ -69,8 +69,8 @@ def compress_png(source, destination, max_bytes=MAX_BYTES):
         attempts.append({'method': method, 'bytes': len(selected)})
         if len(selected) > max_bytes:
             rgb = image.convert('RGB')
-            # Invisible RGB should not consume palette entries. Alpha stays exact.
-            rgb.paste((0, 0, 0), mask=alpha.point(lambda p: 255 if p == 0 else 0))
+            # Preserve the painted RGB underneath transparent template edges;
+            # replacing it with black can reintroduce a dark sampling fringe.
             for colors in (256, 128, 64, 32):
                 candidate = rgb.quantize(colors=colors, method=Image.Quantize.MEDIANCUT,
                                          dither=Image.Dither.NONE).convert('RGBA')
