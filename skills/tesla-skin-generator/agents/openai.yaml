@@ -1,0 +1,4 @@
+interface:
+  display_name: "Model Y 文字皮肤生成"
+  short_description: "用一句文字生成 Model Y 车机皮肤，内置白版与方向规则并检查导出规格"
+  default_prompt: "用 $tesla-skin-generator 生成一款奶油白底、橘猫主题、简洁可爱的 Model Y 皮肤。"

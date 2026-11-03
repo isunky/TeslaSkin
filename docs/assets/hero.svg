@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="560" viewBox="0 0 1600 560" role="img" aria-labelledby="title desc">
+  <title id="title">TeslaSkin — A text-to-skin skill for Model Y</title>
+  <desc id="desc">A dark editorial cover with a cream and orange abstract UV layout. Describe a theme, generate artwork, check the skin.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#111b23"/><stop offset="1" stop-color="#090e13"/></linearGradient>
+    <linearGradient id="cream" x2="1" y2="1"><stop stop-color="#fff6e6"/><stop offset="1" stop-color="#e9c997"/></linearGradient>
+    <linearGradient id="orange" x2="0" y2="1"><stop stop-color="#ffbd72"/><stop offset="1" stop-color="#e5873c"/></linearGradient>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0V38" fill="none" stroke="#fff" stroke-opacity=".035"/></pattern>
+    <filter id="shadow" x="-.4" y="-.2" width="1.8" height="1.5"><feDropShadow dx="0" dy="18" stdDeviation="23" flood-color="#000" flood-opacity=".5"/></filter>
+  </defs>
+  <rect width="1600" height="560" rx="24" fill="url(#bg)"/>
+  <rect width="1600" height="560" rx="24" fill="url(#grid)"/>
+  <path d="M0 1H1600" stroke="#f5b979" stroke-opacity=".4"/>
+  <circle cx="1460" cy="20" r="420" fill="#f9b974" opacity=".025"/>
+  <circle cx="1460" cy="20" r="310" fill="none" stroke="#e1b27c" stroke-opacity=".09"/>
+  <g font-family="Inter,Segoe UI,Arial,sans-serif">
+    <rect x="72" y="62" width="171" height="31" rx="15.5" fill="#e9b77f" fill-opacity=".09" stroke="#e9b77f" stroke-opacity=".25"/>
+    <text x="93" y="83" fill="#e9b77f" font-size="12" font-weight="600" letter-spacing="2">MODEL Y · AI SKILL</text>
+    <text x="68" y="222" fill="#f7f3ed" font-size="108" font-weight="700" letter-spacing="-5">Tesla<tspan fill="#efb579">Skin</tspan></text>
+    <text x="75" y="281" fill="#d9dfe3" font-size="25" letter-spacing=".3">Your words. A new skin.</text>
+    <text x="75" y="328" fill="#82939e" font-size="18">A text-to-skin skill for Model Y.</text>
+    <path d="M75 379H691" stroke="#b0bbc4" stroke-opacity=".15"/>
+    <g font-size="12" letter-spacing="2" font-weight="600">
+      <text x="75" y="420" fill="#efb579">01</text><text x="109" y="420" fill="#a7b3bb">DESCRIBE</text>
+      <text x="286" y="420" fill="#efb579">02</text><text x="320" y="420" fill="#a7b3bb">GENERATE</text>
+      <text x="496" y="420" fill="#efb579">03</text><text x="530" y="420" fill="#a7b3bb">CHECK</text>
+    </g>
+    <text x="75" y="503" fill="#61737f" font-size="11" letter-spacing="2">BUILT-IN TEMPLATE / WORDS FIRST / PNG OUTPUT</text>
+  </g>
+  <g transform="translate(932 51)" filter="url(#shadow)">
+    <rect width="529" height="454" rx="23" fill="#15212b" stroke="#35424b"/>
+    <circle cx="24" cy="24" r="3" fill="#efb579"/>
+    <text x="38" y="28" fill="#9aabb6" font-family="Segoe UI,Arial,sans-serif" font-size="10" letter-spacing="2">UV / DESIGN STUDY</text>
+    <text x="425" y="28" fill="#718590" font-family="Segoe UI,Arial,sans-serif" font-size="10">16 ISLANDS</text>
+    <g transform="translate(72 52)" stroke="#efd0a4" stroke-width="1.2" stroke-linejoin="round">
+      <path d="M113 5Q192-5 272 5L289 47Q258 53 252 43H133Q127 53 96 47Z" fill="url(#cream)"/>
+      <path d="M26 11L48 2 61 65 78 93 4 100 0 84 25 66Z" fill="url(#cream)"/>
+      <path d="M359 11L337 2 324 65 307 93 381 100 385 84 360 66Z" fill="url(#cream)"/>
+      <path d="M143 69Q193 55 243 69L258 149Q192 136 127 149Z" fill="url(#cream)"/>
+      <path d="M7 112Q40 108 75 115L80 211 6 201Z" fill="url(#cream)"/>
+      <path d="M378 112Q345 108 310 115L305 211 379 201Z" fill="url(#cream)"/>
+      <path d="M6 212L80 222 86 304 45 311 8 272Z" fill="url(#cream)"/>
+      <path d="M379 212L305 222 299 304 340 311 377 272Z" fill="url(#cream)"/>
+      <path d="M42 320L85 316 95 351 73 375 33 361Z" fill="url(#cream)"/>
+      <path d="M343 320L300 316 290 351 312 375 352 361Z" fill="url(#cream)"/>
+      <path d="M103 66L113 64 109 248 101 247Z" fill="url(#cream)"/>
+      <path d="M282 66L272 64 276 248 284 247Z" fill="url(#cream)"/>
+      <path d="M93 167Q111 154 117 174L94 176Z" fill="url(#cream)"/>
+      <path d="M292 167Q274 154 268 174L291 176Z" fill="url(#cream)"/>
+      <path d="M108 258L133 311Q193 325 252 311L277 258 288 265 268 335 248 348 243 366Q192 376 142 366L137 348 117 335 97 265Z" fill="url(#cream)"/>
+      <path d="M116 376L144 381H241L269 376 283 398H103Z" fill="url(#cream)"/>
+    </g>
+    <g transform="translate(264 160)" fill="url(#orange)" stroke="#ba713c" stroke-width="1.5" stroke-linejoin="round">
+      <path d="M-32-2L-35-27-14-13Q0-20 15-13L35-27 32-2Q44 27 0 30Q-44 27-32-2Z"/>
+      <path d="M-19 6Q-13 0-7 6M7 6Q13 0 19 6" stroke="#78503a" fill="none" stroke-width="3" stroke-linecap="round"/>
+      <path d="M-4 13H4L0 17Z" fill="#e7a18a" stroke="none"/>
+      <path d="M-1-15V-6M-12-12L-8-5M12-12L8-5" stroke="#bb753a" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g fill="#eab17a" opacity=".75">
+      <path d="M87 183L140 203 145 214 89 195ZM438 183L385 203 380 214 436 195Z"/>
+      <path d="M89 289L145 303 148 312 90 299ZM436 289L380 303 377 312 435 299Z"/>
+      <circle cx="263" cy="391" r="5"/><circle cx="256" cy="383" r="2"/><circle cx="263" cy="381" r="2"/><circle cx="270" cy="383" r="2"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+{
+  "ok": false,
+  "file": "output/orange-cat-v02.png",
+  "errors": [
+    "file_size: 1449204 bytes exceeds 1000000",
+    "dimensions: expected 1024x1024"
+  ],
+  "warnings": [
+    "File checks do not verify artwork direction, seams or in-car appearance."
+  ],
+  "metrics": {
+    "bytes": 1449204,
+    "format": "PNG",
+    "size": [
+      1254,
+      1254
+    ]
+  }
+}
