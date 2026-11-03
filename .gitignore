@@ -15,3 +15,6 @@ Thumbs.db
 # Documentation preview artifacts
 .playwright-cli/
 output/playwright/
+
+# Local/CI build products (published by the release workflow)
+dist/

@@ -8,9 +8,11 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/isunky/TeslaSkin/releases/latest"><img src="https://img.shields.io/github/v/release/isunky/TeslaSkin?style=flat-square&amp;labelColor=17232d&amp;color=e9b77f" alt="Latest release" /></a>
+  <a href="https://github.com/isunky/TeslaSkin/actions/workflows/skill-release.yml"><img src="https://github.com/isunky/TeslaSkin/actions/workflows/skill-release.yml/badge.svg" alt="Skill CI and Release" /></a>
   <a href="skills/tesla-skin-generator/SKILL.md"><img src="https://img.shields.io/badge/Agent_Skill-tesla--skin--generator-17232d?style=flat-square&amp;labelColor=101820" alt="Agent Skill" /></a>
   <img src="https://img.shields.io/badge/Vehicle-Model_Y-e9b77f?style=flat-square&amp;labelColor=17232d" alt="Model Y" />
-  <a href="tests/"><img src="https://img.shields.io/badge/Local_tests-34_passed-7eaa91?style=flat-square&amp;labelColor=17232d" alt="34 local tests passed" /></a>
+  <a href="tests/"><img src="https://img.shields.io/badge/Local_tests-42_passed-7eaa91?style=flat-square&amp;labelColor=17232d" alt="42 local tests passed" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-9daab5?style=flat-square&amp;labelColor=17232d" alt="Apache 2.0" /></a>
 </p>
 
@@ -40,7 +42,7 @@ TeslaSkin 是运行在支持 Agent Skills 和内置生图能力环境中的技�
 
 你的明确要求始终优先：说“极简黑金”会细化线条、比例和呼应；说“纯黑底，只要一条红线”就保留单线设计；说“只改引擎盖”则仅补充该部位。自动补充不等于强行增加花纹，也不会擅自添加其他角色、品牌或标语。
 
-> **当前状态：34 项本地测试通过。** 橘猫 v03 和 Hello Kitty 连贯背景版均通过文件、结构及边缘检查，完成平面方向与构图复核。旧版已有用户提供的 Tesla App 展示反馈；新版本的 App 前/侧/后及实车效果仍待确认。详见[验收记录](output/validation-summary.md)。
+> **当前状态：42 项本地测试通过。** 橘猫 v03 和 Hello Kitty 连贯背景版均通过文件、结构及边缘检查，完成平面方向与构图复核。旧版已有用户提供的 Tesla App 展示反馈；新版本的 App 前/侧/后及实车效果仍待确认。详见[验收记录](output/validation-summary.md)。
 
 ### 为什么推荐 ChatGPT
 
@@ -87,7 +89,7 @@ cp -R skills/tesla-skin-generator "${CODEX_HOME:-$HOME/.codex}/skills/"
 
 </details>
 
-也可下载 [技能 ZIP 包](tesla-skin-generator.zip)，将其中的 `tesla-skin-generator` 文件夹放入个人 skills 目录。安装后在支持该技能的聊天中调用；已有同名技能时，请先备份你的自定义内容。
+推荐从 [GitHub Releases](https://github.com/isunky/TeslaSkin/releases/latest) 下载带版本号的技能 ZIP，或使用仓库的[最新技能包](tesla-skin-generator.zip)。将其中的 `tesla-skin-generator` 文件夹放入个人 skills 目录；已有同名技能时先备份自定义内容。发行包内 `VERSION`、`SKILL.md` 的 `metadata.version` 和 `BUILD.json` 会记录同一版本。
 
 以上目录复制步骤适用于读取本地 skills 目录的环境。ChatGPT 中请使用当前客户端提供的技能入口；网页及手机端需通过包含该技能的插件使用。[官方支持范围](https://learn.chatgpt.com/docs/build-skills)
 
@@ -242,7 +244,31 @@ python skills/tesla-skin-generator/scripts/validate_skin.py output/orange-cat-v0
 python -m unittest discover -s tests -v
 ```
 
-目前包含 34 项测试：12 项合成、8 项压缩和 14 项文件校验。新增检查跨门板背景不重新起图、满版背景与主体安全区分离、纹样带裁切及非法背景分区；原有方向、透明度、压缩及版本保护检查保留。文件、结构、图案人工检查、App 前/侧/后及实车状态分别记录。
+目前包含 42 项测试：12 项合成、8 项压缩、14 项文件校验和 8 项构建/发布检查。发布测试使用本地临时 Git 仓库验证首发、递增、重跑复用及过期提交保护，不需要联网发布。文件、结构、图案人工检查、App 前/侧/后及实车状态分别记录。
+
+## 技能版本与自动构建
+
+技能使用 `MAJOR.MINOR.PATCH` 版本，与作品文件名中的 `v01/v02` 分开。源码版本位于 [VERSION](skills/tesla-skin-generator/VERSION)，与 `SKILL.md` 元数据一致。
+
+- **自动发布**：技能、构建脚本、测试、依赖或工作流变更推送至 `main`，先在 Windows 和 Ubuntu 上执行校验、42 项测试及 ZIP 构建。通过后首发使用声明的基线（初始为 `0.1.0`），后续默认递增 PATCH，如 `0.1.0 → 0.1.1`。
+- **PR 校验**：Pull Request 只执行测试和打包，产物可在 Actions 下载，不发布版本。
+- **手动升级**：进入 [Actions](https://github.com/isunky/TeslaSkin/actions/workflows/skill-release.yml)，选择 **Run workflow**，分支选择 `main`，可选择 `patch`、`minor` 或 `major`。
+- **版本回写**：发布作业自动提交新版本元数据及仓库 ZIP，并创建 `vX.Y.Z` 标签与 GitHub Release；发布提交标记 `[skip ci]`，使用仓库自带的 `GITHUB_TOKEN`，无需额外 PAT。机器人提交不会触发新的 push 工作流。[GitHub 触发规则](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)
+- **串行与重试**：发布任务串行运行，正常推送分支和标签，不强推；测试期间 `main` 已前进时由较新的运行负责发布。重跑同一次发布会复用已有版本和标签，已存在的 Release 附件只有字节一致才接受，不覆盖不同附件。
+- **触发范围**：仅修改 README、示例图片或作品文件不会自动发布技能新版本；可手动触发发布。
+
+Release 附带 `tesla-skin-generator-vX.Y.Z.zip` 和 `SHA256SUMS.txt`。ZIP 只包含技能运行资源、版本、许可证及 `BUILD.json`，不打包项目 Sample、作品或缓存。`BUILD.json` 保存已测试的源码提交和包内文件校验值；发布提交仅更新版本与 ZIP，所以与被测试的源码提交分别记录。
+
+本地构建：
+
+```powershell
+python -m pip install -r requirements-dev.txt
+python scripts/build_skill.py --check
+python -m unittest discover -s tests -v
+python scripts/build_skill.py --output dist
+```
+
+产物写入忽略跟踪的 `dist/`。文件顺序、ZIP 时间戳和文本换行固定，同一源码、版本与工具链下构建可复现。先 `git pull --ff-only` 获取机器人回写的最新版本，再进行后续修改。
 
 ## 项目结构
 
@@ -250,6 +276,7 @@ python -m unittest discover -s tests -v
 TeslaSkin/
 ├── skills/tesla-skin-generator/
 │   ├── SKILL.md                # 制作流程与交付规则
+│   ├── VERSION                 # 与 SKILL.md 元数据一致的技能版本
 │   ├── agents/openai.yaml      # 技能名称与默认调用提示
 │   ├── assets/template.png     # 独立打包的固定白版
 │   ├── assets/parts.json       # 分区种子、旋转和安全边距
@@ -260,6 +287,8 @@ TeslaSkin/
 │       ├── compress_skin.py     # 超限压缩，保留尺寸与 alpha
 │       └── validate_skin.py     # 文件与透明轮廓检查
 ├── tests/                      # 文件与几何检查回归测试
+├── scripts/                    # 技能校验、打包与自动版本发布
+├── .github/workflows/          # Windows/Linux CI 与 GitHub Release
 ├── output/                     # 候选图、提示词和验收记录
 ├── Sample/                     # 用户提供的第三方结构参考
 ├── template.png                # 原始白版
