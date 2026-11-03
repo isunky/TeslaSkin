@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "source": "D:\\AICode\\Skin\\output\\parrot-v01.png",
+  "output": "D:\\AICode\\Skin\\output\\parrot-v01-c.png",
+  "input_bytes": 1033184,
+  "output_bytes": 770632,
+  "max_bytes": 1000000,
+  "method": "quantized-256",
+  "lossy_rgb": true,
+  "size": [
+    1024,
+    1024
+  ],
+  "alpha_preserved": true,
+  "attempts": [
+    {
+      "method": "lossless",
+      "bytes": 1033184
+    },
+    {
+      "method": "quantized-256",
+      "bytes": 770632
+    }
+  ],
+  "warning": "File-size success does not verify Model Y geometry, direction or in-car appearance."
+}

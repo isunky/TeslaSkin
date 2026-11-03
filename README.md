@@ -3,133 +3,53 @@
 </p>
 
 <p align="center">
-  <strong>TeslaSkin：输入一句创意，自动丰富设计细节，生成连贯的 Model Y 车机皮肤。</strong><br />
-  一句话补全设计 · 连贯背景 · 固定白版合成 · 分区旋转 · 压缩校验
+  <strong>一句话，让你的 Model Y 换上喜欢的皮肤。</strong><br />
+  不用提供参考图，告诉它主题，剩下的设计交给 TeslaSkin。
 </p>
 
 <p align="center">
-  <a href="https://github.com/isunky/TeslaSkin/releases/latest"><img src="https://img.shields.io/github/v/release/isunky/TeslaSkin?style=flat-square&amp;labelColor=17232d&amp;color=e9b77f" alt="Latest release" /></a>
-  <a href="https://github.com/isunky/TeslaSkin/actions/workflows/skill-release.yml"><img src="https://github.com/isunky/TeslaSkin/actions/workflows/skill-release.yml/badge.svg" alt="Skill CI and Release" /></a>
-  <a href="skills/tesla-skin/SKILL.md"><img src="https://img.shields.io/badge/Agent_Skill-tesla--skin-17232d?style=flat-square&amp;labelColor=101820" alt="Agent Skill" /></a>
-  <img src="https://img.shields.io/badge/Vehicle-Model_Y-e9b77f?style=flat-square&amp;labelColor=17232d" alt="Model Y" />
-  <a href="tests/"><img src="https://img.shields.io/badge/Local_tests-42_passed-7eaa91?style=flat-square&amp;labelColor=17232d" alt="42 local tests passed" /></a>
+  <a href="https://github.com/isunky/TeslaSkin/releases/latest"><img src="https://img.shields.io/github/v/release/isunky/TeslaSkin?style=flat-square&amp;labelColor=17232d&amp;color=e9b77f" alt="最新版本" /></a>
+  <img src="https://img.shields.io/badge/Model_Y-车机皮肤-e9b77f?style=flat-square&amp;labelColor=17232d" alt="Model Y 车机皮肤" />
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-9daab5?style=flat-square&amp;labelColor=17232d" alt="Apache 2.0" /></a>
 </p>
 
 <p align="center">
-  <a href="#安装">安装</a> · <a href="#使用">使用</a> · <a href="#生成示例">生成示例</a> · <a href="#检查与测试">检查与测试</a> · <a href="skills/tesla-skin/SKILL.md">技能指令</a>
+  <a href="#安装">安装</a> · <a href="#使用">使用</a> · <a href="#作品示例">作品示例</a>
 </p>
 
 ---
 
-> **推荐基于 ChatGPT 运行本技能，以获得最佳使用体验。** 优先选择同时支持 Skills、内置生图和文件处理的环境，便于在同一对话中完成白版编辑、持续修改、超限压缩与检查。不同入口、套餐和工作区的工具可用性可能不同，请确认当前会话具备相应能力。
-
-> 技能现已更名为 `tesla-skin`（原名 `tesla-skin-generator`）。更新时请移除或备份旧技能目录，之后使用 `$tesla-skin` 调用。历史版本仍可从 Releases 下载。
-
-## 从想法开始
-
-> 用 `$tesla-skin` 生成一款奶油白底、橘猫主题、简洁可爱的 Model Y 皮肤。
-
-TeslaSkin 是运行在支持 Agent Skills 和内置生图能力环境中的技能。你只需描述主题或气质，助手会自动补齐配色、主视觉、贯穿纹样、装饰细节和分区安排，无需先写完整设计需求或提供参考图片。AI 生成画稿，程序在固定白版上连续排布背景、旋转主体和导出，减少模型不执行尺寸、方向或轮廓约束的问题。
-
-| 描述主题 | 生成与修改 | 检查与交付 |
-| :--- | :--- | :--- |
-| 只说主题或气质，细节自动补齐，默认制作一款 | AI 生成背景与正立主体，程序固定分区旋转与安全排布 | 清理边缘、必要时压缩并校验，保留设计 brief、素材、JSON 与提示词 |
-
-### 一句话自动补齐设计
-
-说“Hello Kitty 主题”就够了。技能会补充主辅配色、角色与装饰的关系、贯穿车身的构图、疏密变化及前/侧/后的分工，用几句话说明方向后直接制作，并保存 `.brief.md` 设计记录。
-
-例如，可扩展为“草莓粉与奶油白、莓红强调，Kitty 融入缎带花环，丝带连接前后门，花朵和爱心沿路径聚散，格纹与尾部蝴蝶结呼应”。这只是一个设计方向，不是每款作品的固定配方。
-
-你的明确要求始终优先：说“极简黑金”会细化线条、比例和呼应；说“纯黑底，只要一条红线”就保留单线设计；说“只改引擎盖”则仅补充该部位。自动补充不等于强行增加花纹，也不会擅自添加其他角色、品牌或标语。
-
-> **当前状态：42 项本地测试通过。** 下方成品均通过文件与结构检查；App 前、侧、后及实车效果仍待确认。
-
-### 为什么推荐 ChatGPT
-
-- **图案创作和固定白版衔接。** 本技能围绕 ChatGPT 的原生生图、图片编辑和对话式修改流程设计，并已在当前环境实测，可把生成的图案接入固定白版合成器。
-- **在同一对话中持续调整。** 从“生成橘猫主题”到“只改引擎盖”，可以接续已有作品与修改要求，减少在多个工具间搬运图片、重复说明设计的操作。
-- **将生成与交付衔接起来。** 具备文件处理及 Python 执行能力的环境，可继续运行随包的压缩和校验脚本，保留版本、提示词和处理报告。
-
-这是基于本技能工作流设计的使用建议，不代表其他平台不能运行，也不保证生图必然满足精确 UV 要求。生成后仍需完整检查。相关能力及使用方式可参考 [ChatGPT 图片生成与编辑](https://learn.chatgpt.com/docs/image-generation)和 [Skills 官方说明](https://learn.chatgpt.com/docs/build-skills)。
+> **推荐在支持 Skill、内置生图和文件处理的 ChatGPT 环境中使用。** 这样可以在同一段对话里生成、调整并交付皮肤。不同客户端的能力可能不同；请以当前环境提供的功能为准。
 
 ## 安装
 
-需要支持 Agent Skills 的运行环境、可用的内置生图工具，以及用于校验的 **Python 3 + Pillow**。技能本身不包含生图模型，也不要求单独配置 API Key；无生图工具时会明确说明，不自动切换到付费 API。
+在支持安装 Skill 的助手中（例如 Codex），发送以下提示词：
 
-### 1. 获取项目
-
-```powershell
-git clone https://github.com/isunky/TeslaSkin.git
-cd TeslaSkin
-python -m pip install -r requirements.txt
+```text
+请从 https://github.com/isunky/TeslaSkin 安装最新版 tesla-skin Skill。
+技能位于仓库的 skills/tesla-skin 目录，请安装到当前环境的个人 skills 目录，
+检查所需依赖。如果已经安装，请先备份已有的自定义内容，再更新到最新版。
 ```
 
-### 2. 安装到个人 skills 目录
-
-**Windows / PowerShell**
-
-```powershell
-$skillsDir = if ($env:CODEX_HOME) {
-    Join-Path $env:CODEX_HOME 'skills'
-} else {
-    Join-Path $env:USERPROFILE '.codex\skills'
-}
-New-Item -ItemType Directory -Path $skillsDir -Force | Out-Null
-Copy-Item -LiteralPath '.\skills\tesla-skin' -Destination $skillsDir -Recurse
-```
-
-<details>
-<summary>macOS / Linux</summary>
-
-```bash
-python3 -m pip install -r requirements.txt
-mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-cp -R skills/tesla-skin "${CODEX_HOME:-$HOME/.codex}/skills/"
-```
-
-</details>
-
-推荐从 [GitHub Releases](https://github.com/isunky/TeslaSkin/releases/latest) 下载带版本号的技能 ZIP，或使用仓库的[最新技能包](tesla-skin.zip)。将其中的 `tesla-skin` 文件夹放入个人 skills 目录；已有同名技能时先备份自定义内容。发行包内 `VERSION`、`SKILL.md` 的 `metadata.version` 和 `BUILD.json` 会记录同一版本。
-
-以上目录复制步骤适用于读取本地 skills 目录的环境。ChatGPT 中请使用当前客户端提供的技能入口；网页及手机端需通过包含该技能的插件使用。[官方支持范围](https://learn.chatgpt.com/docs/build-skills)
+安装完成后，开启新对话或按客户端提示刷新，即可使用。如果当前环境不支持通过对话安装，可从 [Releases 下载最新技能包](https://github.com/isunky/TeslaSkin/releases/latest)，并按客户端的 Skill 安装方式导入。
 
 ## 使用
 
-**创建一款皮肤**
+描述你想要的主题即可，例如：
 
 ```text
-用 $tesla-skin 生成一款奶油白底、橘猫主题的 Model Y 皮肤。
-简洁可爱，点缀少量猫爪，不要文字。
+用 $tesla-skin 生成一款橘猫主题皮肤。
 ```
 
-**通过对话继续修改**
+TeslaSkin 会自动补充配色、图案和细节，生成后还可以继续说：
 
 ```text
-底色再淡一点，橘色保持不变。
+颜色再淡一点，只修改引擎盖。
 ```
 
-```text
-只修改引擎盖，把猫换成睡觉的姿势，其他部位保留。
-```
+目前适配内置白版对应的旧款 Model Y。生成的图片通过文件检查后，仍需在 App 和车辆上确认展示效果。
 
-每次制作会保存版本化 PNG、实际提示词和检查结果。示例目录：
-
-```text
-output/
-├── orange-cat-v03-assets/          # 独立图案，后续修改可复用
-├── <name>.brief.md                # 新生成作品的要求与补充设计
-├── orange-cat-v03.design.json      # 分区排布和底色
-├── orange-cat-v03.png              # 车机用 PNG
-├── orange-cat-v03.prompt.txt
-├── orange-cat-v03.composition.json
-└── orange-cat-v03.validation.json
-```
-
-排布问题通过设计 JSON 修正，避免整套随机重画；素材问题最多进行一次定向生图修正。最终皮肤超过 1,000,000 字节时先压缩、保留原图，再检查实际交付文件；源素材不受车机导出文件的体积限制。
-
-## 生成示例
+## 作品示例
 
 以下提示词保留用户的原始输入；图片均为最终皮肤展开图。文件检查已通过，App 和实车效果待确认。
 
@@ -152,124 +72,6 @@ output/
   </tr>
 </table>
 
-## 模板规则
+---
 
-- **白版是几何基准。** 固定部位位置、轮廓、细条和透明留空；中心透明洞不能被当作车顶补图。
-- **方向按部位处理。** 展开图左右仅指画布位置，不直接推断驾驶员侧；样例中未验证的实际部位对应已单独标记。
-- **图案保留安全区。** 引擎盖内缩 10 像素，主要门板/侧围内缩 8 像素；门板靠窗侧额外留出 20% 放置宽度。这是设计安全边距，不是精确门把手 UV 校准。
-- **轮廓和导向线分离。** 成品继承白版 alpha，原模板 RGB 黑色导向描边不绘入车漆；压缩也不将透明边缘底下的 RGB 主动填黑。
-- **参考图只帮助理解结构。** `Sample/` 中部分作品的尺寸、透明区和方向不同，不用于替换白版，也不默认继承其风格或角色。
-- **只适配当前白版。** 其他年份或车型需要对应模板，不能通过拉伸套用。
-
-完整坐标、方向证据与限制见 [布局规则](skills/tesla-skin/references/layout.md)。
-
-## 检查与测试
-
-### 固定白版合成
-
-制作好背景画稿和正立透明主体后，用设计 JSON 配置 `backgrounds`（共享背景）及 `parts`（受保护主体）。同一组相邻部件共用一个背景缩放/定位，主体单独保留安全区；图片路径相对于 JSON。
-
-```powershell
-python skills/tesla-skin/scripts/compose_skin.py output/orange-cat-v03.design.json output/orange-cat-v06.png --report output/orange-cat-v06.composition.json --review output/orange-cat-v06-review.png
-python skills/tesla-skin/scripts/validate_skin.py output/orange-cat-v06.png --report output/orange-cat-v06.validation.json
-```
-
-设计字段、部件 ID、安全区及人工复核步骤见[合成说明](skills/tesla-skin/references/design.md)。
-
-丰富程度按主题及用户偏好调整。安全区用于保护脸部和文字，不要求所有装饰缩进，也不要求每个部件都放一个图标。背景可以有意裁切到边，最终 alpha 仍由原模板固定。
-
-### 超限时自动压缩
-
-Skill 会读取实际文件体积。超过 **1,000,000 字节**时，先无损优化 PNG、去掉非必要元数据；仍超限时依次尝试 256、128、64、32 色的 RGB 量化，选择首个达标结果。像素尺寸和完整透明通道保持不变，原图不覆盖。
-
-也可手动运行：
-
-```powershell
-python skills/tesla-skin/scripts/compress_skin.py output/orange-cat-v02.png output/orange-cat-v02-export.png --report output/orange-cat-v02-export.compression.json
-python skills/tesla-skin/scripts/validate_skin.py output/orange-cat-v02-export.png --report output/orange-cat-v02-export.validation.json
-```
-
-颜色量化可能造成色差或色带，需要查看结果。仍无法达标时明确报告失败，不通过缩图、裁图或移除透明度降低体积。**体积达标不等于皮肤整体合格**，压缩后必须重新校验。
-
-重复运行命令时请使用新的输出名称。
-
-### 文件校验
-
-检查一张生成图：
-
-```powershell
-python skills/tesla-skin/scripts/validate_skin.py output/orange-cat-v03.png
-```
-
-另存 JSON 检查报告：
-
-```powershell
-python skills/tesla-skin/scripts/validate_skin.py output/orange-cat-v03.png --report output/review.json
-```
-
-脚本不修改图片，不覆盖已有报告。退出码 `0` 表示文件检查通过，`1` 表示图片或模板不合格，`2` 表示命令、依赖或报告保存错误。
-
-运行回归测试：
-
-```powershell
-python -m unittest discover -s tests -v
-```
-
-目前包含 42 项测试：12 项合成、8 项压缩、14 项文件校验和 8 项构建/发布检查。发布测试使用本地临时 Git 仓库验证首发、递增、重跑复用及过期提交保护，不需要联网发布。文件、结构、图案人工检查、App 前/侧/后及实车状态分别记录。
-
-## 技能版本与自动构建
-
-技能使用 `MAJOR.MINOR.PATCH` 版本，与作品文件名中的 `v01/v02` 分开。源码版本位于 [VERSION](skills/tesla-skin/VERSION)，与 `SKILL.md` 元数据一致。
-
-- **自动发布**：技能、构建脚本、测试、依赖或工作流变更推送至 `main`，先在 Windows 和 Ubuntu 上执行校验、42 项测试及 ZIP 构建。通过后首发使用声明的基线（初始为 `0.1.0`），后续默认递增 PATCH，如 `0.1.0 → 0.1.1`。
-- **PR 校验**：Pull Request 只执行测试和打包，产物可在 Actions 下载，不发布版本。
-- **手动升级**：进入 [Actions](https://github.com/isunky/TeslaSkin/actions/workflows/skill-release.yml)，选择 **Run workflow**，分支选择 `main`，可选择 `patch`、`minor` 或 `major`。
-- **版本回写**：发布作业自动提交新版本元数据及仓库 ZIP，并创建 `vX.Y.Z` 标签与 GitHub Release；发布提交标记 `[skip ci]`，使用仓库自带的 `GITHUB_TOKEN`，无需额外 PAT。机器人提交不会触发新的 push 工作流。[GitHub 触发规则](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)
-- **串行与重试**：发布任务串行运行，正常推送分支和标签，不强推；测试期间 `main` 已前进时由较新的运行负责发布。重跑同一次发布会复用已有版本和标签，已存在的 Release 附件只有字节一致才接受，不覆盖不同附件。
-- **触发范围**：仅修改 README、示例图片或作品文件不会自动发布技能新版本；可手动触发发布。
-
-Release 附带 `tesla-skin-vX.Y.Z.zip` 和 `SHA256SUMS.txt`。ZIP 只包含技能运行资源、版本、许可证及 `BUILD.json`，不打包项目 Sample、作品或缓存。`BUILD.json` 保存已测试的源码提交和包内文件校验值；发布提交仅更新版本与 ZIP，所以与被测试的源码提交分别记录。
-
-本地构建：
-
-```powershell
-python -m pip install -r requirements-dev.txt
-python scripts/build_skill.py --check
-python -m unittest discover -s tests -v
-python scripts/build_skill.py --output dist
-```
-
-产物写入忽略跟踪的 `dist/`。文件顺序、ZIP 时间戳和文本换行固定，同一源码、版本与工具链下构建可复现。先 `git pull --ff-only` 获取机器人回写的最新版本，再进行后续修改。
-
-## 项目结构
-
-```text
-TeslaSkin/
-├── skills/tesla-skin/
-│   ├── SKILL.md                # 制作流程与交付规则
-│   ├── VERSION                 # 与 SKILL.md 元数据一致的技能版本
-│   ├── agents/openai.yaml      # 技能名称与默认调用提示
-│   ├── assets/template.png     # 独立打包的固定白版
-│   ├── assets/parts.json       # 分区种子、旋转和安全边距
-│   ├── references/layout.md    # 分区、方向、规格与实测限制
-│   ├── references/design.md    # 合成流程与设计 JSON
-│   └── scripts/
-│       ├── compose_skin.py      # 图案定向排布与透明轮廓合成
-│       ├── compress_skin.py     # 超限压缩，保留尺寸与 alpha
-│       └── validate_skin.py     # 文件与透明轮廓检查
-├── tests/                      # 文件与几何检查回归测试
-├── scripts/                    # 技能校验、打包与自动版本发布
-├── .github/workflows/          # Windows/Linux CI 与 GitHub Release
-├── output/                     # 候选图、提示词和验收记录
-├── Sample/                     # 用户提供的第三方结构参考
-├── template.png                # 原始白版
-├── vehicle_image.png           # 原始车辆图，技能运行不依赖
-└── tesla-skin.zip     # 可携带的技能包
-```
-
-## 许可与致谢
-
-项目代码与文档遵循 [Apache License 2.0](LICENSE)。`Sample/` 中第三方示例的图案及角色版权属于各自权利人，不因本项目的软件许可证而重新授权。车型模板、Tesla 名称及相关标识归其权利人所有；本项目为独立社区项目，与 Tesla 无隶属关系。
-
-- [Tesla 官方自定义皮肤模板与规格](https://github.com/teslamotors/custom-wraps)
-- [OpenAI Agent Skills 文档](https://learn.chatgpt.com/docs/build-skills)
+项目代码与文档遵循 [Apache License 2.0](LICENSE)。示例中的角色和相关品牌属于各自权利人；本项目为独立社区项目，与 Tesla 无隶属关系。

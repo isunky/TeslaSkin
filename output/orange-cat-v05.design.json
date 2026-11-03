@@ -1,0 +1,95 @@
+{
+  "base_color": "#fff2dc",
+  "backgrounds": [
+    {
+      "image": "orange-cat-v04-assets/side.png",
+      "parts": [
+        "left_front_fender",
+        "left_front_door",
+        "left_rear_door",
+        "left_rear_quarter"
+      ],
+      "rotation_cw": 90
+    },
+    {
+      "image": "orange-cat-v04-assets/side.png",
+      "parts": [
+        "right_front_fender",
+        "right_front_door",
+        "right_rear_door",
+        "right_rear_quarter"
+      ],
+      "rotation_cw": 270,
+      "mirror": true
+    },
+    {
+      "image": "orange-cat-v04-assets/side.png",
+      "parts": [
+        "front_bumper"
+      ],
+      "source_box": [
+        0.1,
+        0.15,
+        0.9,
+        0.85
+      ]
+    },
+    {
+      "image": "orange-cat-v04-assets/side.png",
+      "parts": [
+        "rear_bumper"
+      ],
+      "source_box": [
+        0.1,
+        0.15,
+        0.9,
+        0.85
+      ]
+    },
+    {
+      "image": "orange-cat-v04-assets/side.png",
+      "parts": [
+        "hood"
+      ],
+      "rotation_cw": 180,
+      "source_box": [
+        0.2,
+        0.15,
+        0.8,
+        0.85
+      ]
+    },
+    {
+      "image": "orange-cat-v04-assets/side.png",
+      "parts": [
+        "rear_center"
+      ],
+      "source_box": [
+        0.2,
+        0.15,
+        0.8,
+        0.85
+      ]
+    }
+  ],
+  "parts": {
+    "hood": [
+      {
+        "image": "orange-cat-v04-assets/cat.png",
+        "scale": 0.96
+      }
+    ],
+    "left_front_door": [
+      {
+        "image": "orange-cat-v04-assets/cat.png",
+        "scale": 0.82
+      }
+    ],
+    "right_front_door": [
+      {
+        "image": "orange-cat-v04-assets/cat.png",
+        "scale": 0.82
+      }
+    ]
+  }
+}

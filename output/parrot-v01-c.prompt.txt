@@ -1,0 +1,9 @@
+Built-in image generation
+
+Background:
+Use case: stylized-concept. Asset type: wide continuous flat illustration for a custom car wrap. Design a lush, elegant tropical parrot-inspired composition in deep midnight teal and peacock blue, turquoise, jade, fresh lime and restrained vivid golden yellow: long sweeping parrot feathers, layered palm fronds and monstera leaves weave into one directional flowing composition across the entire horizontal image, with small feather details and negative space in a balanced rhythm. Contemporary hand-painted screenprint, crisp stylized vector-like edges, dimensional color layering without vehicle lighting. Rich connected picture from end to end with varied density. No parrot faces or whole birds, no lettering, logos, cars, panels, UV template, checkerboard or watermark. Fully opaque edge-to-edge flat rectangular artwork.
+
+Parrot:
+Use case: stylized-concept. Asset type: single isolated graphic layer for a tropical car wrap. Create an original beautiful blue-and-yellow macaw parrot, upright with expressive eyes, an elegant curved beak, teal and cobalt blue feathers and a vivid golden-yellow chest, a little jade green; graceful folded wings, coherent stylized feather pattern. Refined friendly illustration with crisp edges, strong clear silhouette, no shadows. Full complete bird including feet and compact tail; central composition, generous clear margins on all sides. Genuinely transparent background with alpha, no backdrop, no border, no checkerboard, no other objects, no branches, no words, no logos, no vehicle.
+
+Export: compressed from parrot-v01.png; see parrot-v01-c.compression.json for method and byte counts.

@@ -1,0 +1,7 @@
+Built-in image generation
+
+Background:
+Use case: stylized-concept. Asset type: continuous illustrated side print for a custom vehicle wrap. Create a wide seamless-looking flowing composition in warm cream, honey orange and caramel brown: broad sweeping tiger-tabby stripes flow horizontally across the whole design, small paw prints form a meandering trail, orange cat tail curves integrate into the stripes, gentle golden dots and tiny sparkles cluster in places and disperse elsewhere. Flat premium Japanese-inspired hand-drawn vector illustration, sophisticated varied scale and rhythm, lively but harmonious. The print fills the rectangular canvas edge to edge, with enough cream breathing room and coherent colored shapes to continue across separate door panels. No cats faces, no text, no letters, no logos, no vehicle, no template, no texture shadows, no border. This is flat printable artwork.
+
+Cat:
+Use case: stylized-concept. Asset type: isolated transparent illustration layer for custom wrap. Draw one original charming plump orange tabby cat, front-facing and upright, head and two front paws visible, joyous relaxed smile, warm golden orange tabby stripes, cream muzzle, fine cocoa outlines and blush; balanced artistically illustrated details, simple polished flat illustration with clean edges. Cat is a single unified shape, full ears, paws and whiskers intact, generously padded transparent area on all sides, strictly transparent background with real alpha. No ground, no square, no border, no checkerboard, no text, no car, no shadow, no extra elements.

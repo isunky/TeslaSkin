@@ -1,0 +1,215 @@
+{
+  "ok": true,
+  "canvas": [
+    1024,
+    1024
+  ],
+  "template_alpha_exact": true,
+  "viewing_convention": "outside-front/side-upright",
+  "backgrounds": [
+    {
+      "parts": [
+        "left_front_fender",
+        "left_front_door",
+        "left_rear_door",
+        "left_rear_quarter"
+      ],
+      "rotation_cw": 90,
+      "mirror": false,
+      "source_box": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "group_box": [
+        28,
+        9,
+        263,
+        946
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "0d28a0029d424877a850b6eca8b00d7c25492211cc9018fb2e83184ba458d952",
+      "image": "superwings-v01-assets/sky.png"
+    },
+    {
+      "parts": [
+        "right_front_fender",
+        "right_front_door",
+        "right_rear_door",
+        "right_rear_quarter"
+      ],
+      "rotation_cw": 270,
+      "mirror": true,
+      "source_box": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "group_box": [
+        765,
+        9,
+        998,
+        946
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "0d28a0029d424877a850b6eca8b00d7c25492211cc9018fb2e83184ba458d952",
+      "image": "superwings-v01-assets/sky.png"
+    },
+    {
+      "parts": [
+        "hood"
+      ],
+      "rotation_cw": 180,
+      "mirror": false,
+      "source_box": [
+        0.15,
+        0.1,
+        0.85,
+        0.9
+      ],
+      "group_box": [
+        362,
+        151,
+        662,
+        392
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "0d28a0029d424877a850b6eca8b00d7c25492211cc9018fb2e83184ba458d952",
+      "image": "superwings-v01-assets/sky.png"
+    },
+    {
+      "parts": [
+        "rear_center"
+      ],
+      "rotation_cw": 0,
+      "mirror": false,
+      "source_box": [
+        0.15,
+        0.1,
+        0.85,
+        0.9
+      ],
+      "group_box": [
+        303,
+        633,
+        721,
+        940
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "0d28a0029d424877a850b6eca8b00d7c25492211cc9018fb2e83184ba458d952",
+      "image": "superwings-v01-assets/sky.png"
+    },
+    {
+      "parts": [
+        "front_bumper"
+      ],
+      "rotation_cw": 0,
+      "mirror": false,
+      "source_box": [
+        0.1,
+        0.15,
+        0.9,
+        0.85
+      ],
+      "group_box": [
+        254,
+        9,
+        770,
+        149
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "0d28a0029d424877a850b6eca8b00d7c25492211cc9018fb2e83184ba458d952",
+      "image": "superwings-v01-assets/sky.png"
+    },
+    {
+      "parts": [
+        "rear_bumper"
+      ],
+      "rotation_cw": 0,
+      "mirror": false,
+      "source_box": [
+        0.1,
+        0.15,
+        0.9,
+        0.85
+      ],
+      "group_box": [
+        252,
+        890,
+        770,
+        1017
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "0d28a0029d424877a850b6eca8b00d7c25492211cc9018fb2e83184ba458d952",
+      "image": "superwings-v01-assets/sky.png"
+    }
+  ],
+  "parts": {
+    "hood": [
+      {
+        "rotation_cw": 180,
+        "size": [
+          179,
+          169
+        ],
+        "center_px": [
+          512,
+          268
+        ],
+        "safe_inset": 10,
+        "fit_attempts": 3,
+        "clipped_pixels": 0,
+        "image": "superwings-v01-assets/jett.png",
+        "source_sha256": "0a042e8dc631cfea2b8ea04a1dbd84d97c9b9e0cf0c9c477d93e107783299039"
+      }
+    ],
+    "left_front_door": [
+      {
+        "rotation_cw": 90,
+        "size": [
+          111,
+          118
+        ],
+        "center_px": [
+          101,
+          412
+        ],
+        "safe_inset": 8,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "superwings-v01-assets/jett.png",
+        "source_sha256": "0a042e8dc631cfea2b8ea04a1dbd84d97c9b9e0cf0c9c477d93e107783299039"
+      }
+    ],
+    "right_front_door": [
+      {
+        "rotation_cw": 270,
+        "size": [
+          111,
+          118
+        ],
+        "center_px": [
+          926,
+          412
+        ],
+        "safe_inset": 8,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "superwings-v01-assets/jett.png",
+        "source_sha256": "0a042e8dc631cfea2b8ea04a1dbd84d97c9b9e0cf0c9c477d93e107783299039"
+      }
+    ]
+  },
+  "sha256": "a1b98ce1e41d3bd8f0223b6b49be98e38d4b61a4b91999d866d028987542f773",
+  "checks": {
+    "composition": "passed",
+    "file": "run validate_skin.py",
+    "visual": "manual_required",
+    "app_front": "pending",
+    "app_side": "pending",
+    "app_rear": "pending",
+    "vehicle": "pending"
+  }
+}

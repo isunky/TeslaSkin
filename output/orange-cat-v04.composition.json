@@ -1,0 +1,171 @@
+{
+  "ok": true,
+  "canvas": [
+    1024,
+    1024
+  ],
+  "template_alpha_exact": true,
+  "viewing_convention": "outside-front/side-upright",
+  "backgrounds": [
+    {
+      "parts": [
+        "left_front_fender",
+        "left_front_door",
+        "left_rear_door",
+        "left_rear_quarter"
+      ],
+      "rotation_cw": 90,
+      "mirror": false,
+      "source_box": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "group_box": [
+        28,
+        9,
+        263,
+        946
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "876f5c9d109e25243e9c9c838911152cec88dd6a2f5f0ef3efa63f7ac032a847",
+      "image": "orange-cat-v04-assets/side.png"
+    },
+    {
+      "parts": [
+        "right_front_fender",
+        "right_front_door",
+        "right_rear_door",
+        "right_rear_quarter"
+      ],
+      "rotation_cw": 270,
+      "mirror": true,
+      "source_box": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "group_box": [
+        765,
+        9,
+        998,
+        946
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "876f5c9d109e25243e9c9c838911152cec88dd6a2f5f0ef3efa63f7ac032a847",
+      "image": "orange-cat-v04-assets/side.png"
+    },
+    {
+      "parts": [
+        "front_bumper"
+      ],
+      "rotation_cw": 0,
+      "mirror": false,
+      "source_box": [
+        0.1,
+        0.15,
+        0.9,
+        0.85
+      ],
+      "group_box": [
+        254,
+        9,
+        770,
+        149
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "876f5c9d109e25243e9c9c838911152cec88dd6a2f5f0ef3efa63f7ac032a847",
+      "image": "orange-cat-v04-assets/side.png"
+    },
+    {
+      "parts": [
+        "rear_bumper"
+      ],
+      "rotation_cw": 0,
+      "mirror": false,
+      "source_box": [
+        0.1,
+        0.15,
+        0.9,
+        0.85
+      ],
+      "group_box": [
+        252,
+        890,
+        770,
+        1017
+      ],
+      "edge_bleed_px": 2,
+      "source_sha256": "876f5c9d109e25243e9c9c838911152cec88dd6a2f5f0ef3efa63f7ac032a847",
+      "image": "orange-cat-v04-assets/side.png"
+    }
+  ],
+  "parts": {
+    "hood": [
+      {
+        "rotation_cw": 180,
+        "size": [
+          150,
+          166
+        ],
+        "center_px": [
+          512,
+          268
+        ],
+        "safe_inset": 10,
+        "fit_attempts": 3,
+        "clipped_pixels": 0,
+        "image": "orange-cat-v04-assets/cat.png",
+        "source_sha256": "d5c714d05a3b8dca6d1355bdad720022e790d3c9ac00e13989ba2c368735de8a"
+      }
+    ],
+    "left_front_door": [
+      {
+        "rotation_cw": 90,
+        "size": [
+          103,
+          94
+        ],
+        "center_px": [
+          101,
+          412
+        ],
+        "safe_inset": 8,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "orange-cat-v04-assets/cat.png",
+        "source_sha256": "d5c714d05a3b8dca6d1355bdad720022e790d3c9ac00e13989ba2c368735de8a"
+      }
+    ],
+    "right_front_door": [
+      {
+        "rotation_cw": 270,
+        "size": [
+          103,
+          94
+        ],
+        "center_px": [
+          926,
+          412
+        ],
+        "safe_inset": 8,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "orange-cat-v04-assets/cat.png",
+        "source_sha256": "d5c714d05a3b8dca6d1355bdad720022e790d3c9ac00e13989ba2c368735de8a"
+      }
+    ]
+  },
+  "sha256": "376d5a46fd103852a51410e878ccae71a57510873b7b5a18a521143a285dac6d",
+  "checks": {
+    "composition": "passed",
+    "file": "run validate_skin.py",
+    "visual": "manual_required",
+    "app_front": "pending",
+    "app_side": "pending",
+    "app_rear": "pending",
+    "vehicle": "pending"
+  }
+}
