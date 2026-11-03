@@ -1,0 +1,18 @@
+{
+  "ok": false,
+  "file": "output/orange-cat-v02-c.png",
+  "errors": [
+    "dimensions: expected 1024x1024"
+  ],
+  "warnings": [
+    "File checks do not verify artwork direction, seams or in-car appearance."
+  ],
+  "metrics": {
+    "bytes": 886615,
+    "format": "PNG",
+    "size": [
+      1254,
+      1254
+    ]
+  }
+}
