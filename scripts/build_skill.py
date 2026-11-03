@@ -13,7 +13,7 @@ import yaml
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-NAME = 'tesla-skin-generator'
+NAME = 'tesla-skin'
 VERSION_RE = re.compile(r'(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)')
 TEXT_SUFFIXES = {'.md', '.py', '.json', '.yaml', '.yml', '.txt'}
 

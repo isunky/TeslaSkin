@@ -104,7 +104,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          package="dist/tesla-skin-generator-v${VERSION}.zip"
+          package="dist/tesla-skin-v${VERSION}.zip"
           if gh release view "$TAG" >/dev/null 2>&1; then
             verify_dir="${RUNNER_TEMP}/teslaskin-verify-${TAG}"
             mkdir -p "$verify_dir"

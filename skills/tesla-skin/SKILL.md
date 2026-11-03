@@ -1,11 +1,11 @@
 ---
-name: tesla-skin-generator
+name: tesla-skin
 metadata:
   version: 0.1.1
-description: 将简短主题自动补充为完整 Model Y 皮肤设计并生成：配色与细节、连贯背景、固定白版跨部件排布、旋转、边缘清理和压缩校验。用于当前白版对应的 Tesla Paint Shop 皮肤，不用于实体车衣、车辆渲染或网页开发。
+description: 输入一句创意，自动丰富设计细节并生成连贯的 Model Y 车机皮肤。适用于内置白版对应的 Tesla Paint Shop 车型。
 ---
 
-# Model Y 文字皮肤生成
+# TeslaSkin
 
 技能版本见 [VERSION](VERSION)，与本文件的 `metadata.version` 一致。发行包另含 `BUILD.json`，可追溯构建所用源码提交；这不是皮肤作品的版本号。
 

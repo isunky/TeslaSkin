@@ -10,7 +10,7 @@ from pathlib import Path
 from PIL import Image, PngImagePlugin
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / 'skills/tesla-skin-generator/scripts/compress_skin.py'
+SCRIPT = ROOT / 'skills/tesla-skin/scripts/compress_skin.py'
 spec = importlib.util.spec_from_file_location('compress_skin', SCRIPT)
 compressor = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(compressor)

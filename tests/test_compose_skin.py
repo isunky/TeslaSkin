@@ -8,7 +8,7 @@ import unittest
 from PIL import Image, ImageChops, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / 'skills/tesla-skin-generator/scripts/compose_skin.py'
+SCRIPT = ROOT / 'skills/tesla-skin/scripts/compose_skin.py'
 spec = importlib.util.spec_from_file_location('compose_skin', SCRIPT)
 composer = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(composer)
