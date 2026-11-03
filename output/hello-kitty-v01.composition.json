@@ -1,0 +1,325 @@
+{
+  "ok": true,
+  "canvas": [
+    1024,
+    1024
+  ],
+  "template_alpha_exact": true,
+  "viewing_convention": "outside-front/side-upright",
+  "parts": {
+    "hood": [
+      {
+        "rotation_cw": 180,
+        "size": [
+          180,
+          133
+        ],
+        "center_px": [
+          512,
+          283
+        ],
+        "safe_inset": 10,
+        "fit_attempts": 4,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/kitty.png",
+        "source_sha256": "3ba2455eabeb03e45a12e5107c8f1ef1336a023c0f2d996b31afc857ac86588e"
+      },
+      {
+        "rotation_cw": 180,
+        "size": [
+          35,
+          34
+        ],
+        "center_px": [
+          444,
+          211
+        ],
+        "safe_inset": 10,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/heart.png",
+        "source_sha256": "2424b5a46b1af6018bce3db51af3f4fce3a674e138787223f3c6b7c6f17f444e"
+      },
+      {
+        "rotation_cw": 180,
+        "size": [
+          35,
+          34
+        ],
+        "center_px": [
+          580,
+          211
+        ],
+        "safe_inset": 10,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/heart.png",
+        "source_sha256": "2424b5a46b1af6018bce3db51af3f4fce3a674e138787223f3c6b7c6f17f444e"
+      }
+    ],
+    "front_bumper": [
+      {
+        "rotation_cw": 0,
+        "size": [
+          113,
+          64
+        ],
+        "center_px": [
+          512,
+          78
+        ],
+        "safe_inset": 6,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/bow.png",
+        "source_sha256": "756d182c9e7377ee62930d74d7765364f04cd3ec616040dfbfe93caefa4ddd9f"
+      },
+      {
+        "rotation_cw": 0,
+        "size": [
+          30,
+          29
+        ],
+        "center_px": [
+          391,
+          78
+        ],
+        "safe_inset": 6,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/heart.png",
+        "source_sha256": "2424b5a46b1af6018bce3db51af3f4fce3a674e138787223f3c6b7c6f17f444e"
+      },
+      {
+        "rotation_cw": 0,
+        "size": [
+          30,
+          29
+        ],
+        "center_px": [
+          634,
+          78
+        ],
+        "safe_inset": 6,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/heart.png",
+        "source_sha256": "2424b5a46b1af6018bce3db51af3f4fce3a674e138787223f3c6b7c6f17f444e"
+      }
+    ],
+    "left_front_fender": [
+      {
+        "rotation_cw": 90,
+        "size": [
+          33,
+          33
+        ],
+        "center_px": [
+          188,
+          159
+        ],
+        "safe_inset": 8,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/heart.png",
+        "source_sha256": "2424b5a46b1af6018bce3db51af3f4fce3a674e138787223f3c6b7c6f17f444e"
+      }
+    ],
+    "right_front_fender": [
+      {
+        "rotation_cw": 270,
+        "size": [
+          33,
+          33
+        ],
+        "center_px": [
+          835,
+          159
+        ],
+        "safe_inset": 8,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/heart.png",
+        "source_sha256": "2424b5a46b1af6018bce3db51af3f4fce3a674e138787223f3c6b7c6f17f444e"
+      }
+    ],
+    "left_front_door": [
+      {
+        "rotation_cw": 90,
+        "size": [
+          113,
+          153
+        ],
+        "center_px": [
+          101,
+          412
+        ],
+        "safe_inset": 8,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/kitty.png",
+        "source_sha256": "3ba2455eabeb03e45a12e5107c8f1ef1336a023c0f2d996b31afc857ac86588e"
+      }
+    ],
+    "right_front_door": [
+      {
+        "rotation_cw": 270,
+        "size": [
+          113,
+          153
+        ],
+        "center_px": [
+          926,
+          412
+        ],
+        "safe_inset": 8,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/kitty.png",
+        "source_sha256": "3ba2455eabeb03e45a12e5107c8f1ef1336a023c0f2d996b31afc857ac86588e"
+      }
+    ],
+    "left_rear_door": [
+      {
+        "rotation_cw": 90,
+        "size": [
+          61,
+          109
+        ],
+        "center_px": [
+          107,
+          629
+        ],
+        "safe_inset": 8,
+        "fit_attempts": 2,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/bow.png",
+        "source_sha256": "756d182c9e7377ee62930d74d7765364f04cd3ec616040dfbfe93caefa4ddd9f"
+      }
+    ],
+    "right_rear_door": [
+      {
+        "rotation_cw": 270,
+        "size": [
+          61,
+          109
+        ],
+        "center_px": [
+          920,
+          629
+        ],
+        "safe_inset": 8,
+        "fit_attempts": 2,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/bow.png",
+        "source_sha256": "756d182c9e7377ee62930d74d7765364f04cd3ec616040dfbfe93caefa4ddd9f"
+      }
+    ],
+    "left_rear_quarter": [
+      {
+        "rotation_cw": 90,
+        "size": [
+          55,
+          56
+        ],
+        "center_px": [
+          182,
+          856
+        ],
+        "safe_inset": 8,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/heart.png",
+        "source_sha256": "2424b5a46b1af6018bce3db51af3f4fce3a674e138787223f3c6b7c6f17f444e"
+      }
+    ],
+    "right_rear_quarter": [
+      {
+        "rotation_cw": 270,
+        "size": [
+          54,
+          56
+        ],
+        "center_px": [
+          846,
+          856
+        ],
+        "safe_inset": 8,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/heart.png",
+        "source_sha256": "2424b5a46b1af6018bce3db51af3f4fce3a674e138787223f3c6b7c6f17f444e"
+      }
+    ],
+    "left_mirror": [
+      {
+        "rotation_cw": 90,
+        "size": [
+          16,
+          16
+        ],
+        "center_px": [
+          261,
+          426
+        ],
+        "safe_inset": 4,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/heart.png",
+        "source_sha256": "2424b5a46b1af6018bce3db51af3f4fce3a674e138787223f3c6b7c6f17f444e"
+      }
+    ],
+    "right_mirror": [
+      {
+        "rotation_cw": 270,
+        "size": [
+          16,
+          16
+        ],
+        "center_px": [
+          766,
+          426
+        ],
+        "safe_inset": 4,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/heart.png",
+        "source_sha256": "2424b5a46b1af6018bce3db51af3f4fce3a674e138787223f3c6b7c6f17f444e"
+      }
+    ],
+    "rear_center": [
+      {
+        "rotation_cw": 0,
+        "size": [
+          66,
+          49
+        ],
+        "center_px": [
+          512,
+          890
+        ],
+        "safe_inset": 6,
+        "fit_attempts": 1,
+        "clipped_pixels": 0,
+        "image": "hello-kitty-v01-assets/kitty.png",
+        "source_sha256": "3ba2455eabeb03e45a12e5107c8f1ef1336a023c0f2d996b31afc857ac86588e"
+      }
+    ]
+  },
+  "sha256": "101cbeb4b04e55ce64b8dd64004ac383e1a62f8a34f2fffcccf5eb3290a97b47",
+  "checks": {
+    "composition": "passed",
+    "file": "run validate_skin.py",
+    "visual": "manual_required",
+    "app_front": "pending",
+    "app_side": "pending",
+    "app_rear": "pending",
+    "vehicle": "pending"
+  },
+  "visual_review": {
+    "flat_uv": "passed",
+    "restored_orientation_sheet": "passed",
+    "subject": "Hello Kitty, bow and heart accents",
+    "note": "Not a 3D/App preview. App front/side/rear and vehicle verification remain pending."
+  }
+}

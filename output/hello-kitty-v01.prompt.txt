@@ -1,0 +1,8 @@
+Tool: built-in image_gen.imagegen
+User theme: Hello Kitty Model Y skin (user wording: helloKetty)
+Generated motif: hello-kitty-v01-assets/kitty.png
+transparent_background: true
+
+Create ONE standalone Hello Kitty face motif for a custom Model Y digital skin. It is the recognizable Hello Kitty character: wide rounded white cat head, two small pointed ears, two black oval eyes, a tiny yellow oval nose, three neat black whiskers on each cheek, NO mouth, and a classic coral-red/pink bow on her left ear (on the viewer's right). Face looking straight forward, upright, symmetric face proportions, complete head and bow and whiskers visible. Cute clean Sanrio-style flat 2D graphic with smooth crisp dark charcoal outlines, white face and soft blush pink details; use a compact palette of white, blush pink, coral red, yellow and charcoal. No gradients, shadows, lighting, texture or 3D. Transparent background with generous empty margin around the entire icon and clean alpha edges. ONLY this single face motif; no body, clothes, text, letters, numbers, watermark, frame, extra icons, vehicle, UV template, scenery or decorative particles. The motif will be rotated and placed by software on a fixed car-skin template; do not produce a skin sheet or a mockup.
+
+Assembly: installed tesla-skin-generator compose_skin.py with hello-kitty-v01.design.json. Cream-white body (#fff9f5), pink/coral bow and heart accents; auxiliary bow/heart decorations drawn as simple flat shapes. Fixed original template alpha; clockwise motif rotations: hood 180 degrees, template-left side 90 degrees, template-right side 270 degrees. Final PNG 1024x1024, 164444 bytes, no compression required. App front/side/rear and vehicle appearance remain pending.
