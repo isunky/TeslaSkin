@@ -37,6 +37,18 @@ class CompositionTests(unittest.TestCase):
             self.assertIsNone(ImageChops.multiply(mask, union).getbbox())
             union = ImageChops.lighter(union, mask)
 
+    def test_model3_uses_its_own_template_and_rejects_unknown_model(self):
+        template, parts, masks = composer.template_parts('model-3')
+        self.assertEqual(len(masks), 16)
+        self.assertNotEqual(template.getchannel('A').tobytes(), self.template.getchannel('A').tobytes())
+        self.design.write_text(json.dumps({'model': 'model-3', 'base_color': '#fff2df'}), encoding='utf-8')
+        result = composer.compose(self.design, self.output)
+        with Image.open(self.output) as output:
+            self.assertEqual(output.getchannel('A').tobytes(), template.getchannel('A').tobytes())
+        self.assertEqual(result['model'], 'model-3')
+        with self.assertRaisesRegex(ValueError, 'model must'):
+            composer.template_parts('model-x')
+
     def test_export_exact_alpha_and_no_template_guide_ink(self):
         self.write_design()
         report = composer.compose(self.design, self.output)

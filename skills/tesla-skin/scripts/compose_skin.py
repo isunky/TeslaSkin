@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Place upright motif PNGs onto the immutable Model Y UV template.
+"""Place upright motif PNGs onto the immutable vehicle UV template.
 
 The JSON design contains base_color, optional shared backgrounds, and
 parts: {part_id: [foreground layers]}. Shared prints can flow across a group
@@ -26,11 +26,15 @@ TEMPLATE = SKILL / 'assets/template.png'
 PARTS = SKILL / 'assets/parts.json'
 
 
-def template_parts():
-    config = json.loads(PARTS.read_text(encoding='utf-8'))
-    if hashlib.sha256(TEMPLATE.read_bytes()).hexdigest() != config['template_sha256']:
-        raise ValueError('template hash differs from the calibrated Model Y template')
-    with Image.open(TEMPLATE) as source:
+def template_parts(model='model-y'):
+    if model not in ('model-y', 'model-3'):
+        raise ValueError('model must be model-y or model-3')
+    template_path = TEMPLATE if model == 'model-y' else SKILL / 'assets/model3-template.png'
+    parts_path = PARTS if model == 'model-y' else SKILL / 'assets/model3-parts.json'
+    config = json.loads(parts_path.read_text(encoding='utf-8'))
+    if hashlib.sha256(template_path.read_bytes()).hexdigest() != config['template_sha256']:
+        raise ValueError('template hash differs from the selected vehicle template')
+    with Image.open(template_path) as source:
         template = source.convert('RGBA')
     r, g, b, a = template.split()
     bright = ImageChops.darker(ImageChops.darker(r, g), b).point(lambda v: 255 if v >= 240 else 0)
@@ -231,10 +235,11 @@ def compose(design_path, output_path, report_path=None, review_path=None):
     design = json.loads(design_path.read_text(encoding='utf-8'))
     if not isinstance(design, dict):
         raise ValueError('design must be an object')
-    template, parts, masks = template_parts()
+    model = design.get('model', 'model-y')
+    template, parts, masks = template_parts(model)
     supplied = design.get('parts', {})
     if not isinstance(supplied, dict) or set(supplied) - set(parts):
-        raise ValueError('parts must be an object using known Model Y part IDs')
+        raise ValueError('parts must be an object using known Model Y or Model 3 part IDs')
     canvas = Image.new('RGBA', template.size, design.get('base_color', '#fff2df'))
     if canvas.getchannel('A').getextrema() != (255, 255):
         raise ValueError('base_color must be opaque')
@@ -274,7 +279,7 @@ def compose(design_path, output_path, report_path=None, review_path=None):
         p.parent.mkdir(parents=True, exist_ok=True)
     with output_path.open('xb') as output:
         canvas.save(output, format='PNG', optimize=True)
-    result = {'ok': True, 'canvas': [1024, 1024], 'template_alpha_exact': True,
+    result = {'ok': True, 'model': model, 'canvas': [1024, 1024], 'template_alpha_exact': True,
               'viewing_convention': 'outside-front/side-upright', 'backgrounds': background_records, 'parts': applied,
               'sha256': hashlib.sha256(output_path.read_bytes()).hexdigest(),
               'checks': {'composition': 'passed', 'file': 'run validate_skin.py', 'visual': 'manual_required',

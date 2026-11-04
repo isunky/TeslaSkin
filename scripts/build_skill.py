@@ -84,6 +84,13 @@ def validate_skill(root=ROOT):
             raise ValueError('invalid template PNG')
     if len(config['parts']) != 16 or not (root / 'LICENSE').is_file():
         raise ValueError('missing part definitions or license')
+    config3 = json.loads((skill / 'assets/model3-parts.json').read_text(encoding='utf-8'))
+    template3 = skill / 'assets/model3-template.png'
+    if hashlib.sha256(template3.read_bytes()).hexdigest() != config3['template_sha256'] or len(config3['parts']) != 16:
+        raise ValueError('invalid Model 3 template or part definitions')
+    with Image.open(template3) as image:
+        if image.format != 'PNG' or image.size != (1024, 1024) or image.mode != 'RGBA':
+            raise ValueError('invalid Model 3 template PNG')
     return version
 
 

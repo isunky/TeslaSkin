@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="560" viewBox="0 0 1600 560" role="img" aria-labelledby="title desc">
-  <title id="title">TeslaSkin — A text-to-skin skill for Model Y</title>
+  <title id="title">TeslaSkin — A text-to-skin skill for Model Y and Model 3</title>
   <desc id="desc">A dark editorial cover with a cream and orange abstract UV layout. Describe a theme, generate artwork, check the skin.</desc>
   <defs>
     <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#111b23"/><stop offset="1" stop-color="#090e13"/></linearGradient>
@@ -15,10 +15,10 @@
   <circle cx="1460" cy="20" r="310" fill="none" stroke="#e1b27c" stroke-opacity=".09"/>
   <g font-family="Inter,Segoe UI,Arial,sans-serif">
     <rect x="72" y="62" width="171" height="31" rx="15.5" fill="#e9b77f" fill-opacity=".09" stroke="#e9b77f" stroke-opacity=".25"/>
-    <text x="93" y="83" fill="#e9b77f" font-size="12" font-weight="600" letter-spacing="2">MODEL Y · AI SKILL</text>
+    <text x="93" y="83" fill="#e9b77f" font-size="12" font-weight="600" letter-spacing="2">MODEL Y / 3 · AI SKILL</text>
     <text x="68" y="222" fill="#f7f3ed" font-size="108" font-weight="700" letter-spacing="-5">Tesla<tspan fill="#efb579">Skin</tspan></text>
     <text x="75" y="281" fill="#d9dfe3" font-size="25" letter-spacing=".3">Your words. A new skin.</text>
-    <text x="75" y="328" fill="#82939e" font-size="18">A text-to-skin skill for Model Y.</text>
+    <text x="75" y="328" fill="#82939e" font-size="18">A text-to-skin skill for Model Y and Model 3.</text>
     <path d="M75 379H691" stroke="#b0bbc4" stroke-opacity=".15"/>
     <g font-size="12" letter-spacing="2" font-weight="600">
       <text x="75" y="420" fill="#efb579">01</text><text x="109" y="420" fill="#a7b3bb">DESCRIBE</text>

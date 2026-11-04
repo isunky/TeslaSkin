@@ -1,4 +1,4 @@
 interface:
   display_name: "TeslaSkin"
-  short_description: "输入一句创意，自动丰富设计细节，生成连贯的 Model Y 车机皮肤。"
-  default_prompt: "用 $tesla-skin 生成一款橘猫主题的 Model Y 皮肤。"
+  short_description: "输入一句创意，自动丰富设计细节，生成连贯的 Model Y 和 Model 3 车机皮肤。"
+  default_prompt: "用 $tesla-skin 生成一款橘猫主题皮肤。"

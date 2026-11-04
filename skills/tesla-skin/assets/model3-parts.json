@@ -1,0 +1,144 @@
+{
+  "template_sha256": "1ab297c83f904d50f3be188818e33d67fad432cbca60d499717e58bb1192055d",
+  "viewing_convention": "upright when viewing from outside the front/side of the vehicle; not top-down UI",
+  "parts": {
+    "front_bumper": {
+      "seed": [
+        512,
+        60
+      ],
+      "rotation_cw": 0,
+      "inset": 6
+    },
+    "hood": {
+      "seed": [
+        512,
+        250
+      ],
+      "rotation_cw": 180,
+      "inset": 10
+    },
+    "left_front_fender": {
+      "seed": [
+        180,
+        200
+      ],
+      "rotation_cw": 90,
+      "inset": 8
+    },
+    "right_front_fender": {
+      "seed": [
+        844,
+        200
+      ],
+      "rotation_cw": 270,
+      "inset": 8
+    },
+    "left_front_door": {
+      "seed": [
+        100,
+        480
+      ],
+      "rotation_cw": 90,
+      "inset": 8,
+      "window_edge": "right"
+    },
+    "right_front_door": {
+      "seed": [
+        924,
+        480
+      ],
+      "rotation_cw": 270,
+      "inset": 8,
+      "window_edge": "left"
+    },
+    "left_rear_door": {
+      "seed": [
+        100,
+        700
+      ],
+      "rotation_cw": 90,
+      "inset": 8,
+      "window_edge": "right"
+    },
+    "right_rear_door": {
+      "seed": [
+        924,
+        700
+      ],
+      "rotation_cw": 270,
+      "inset": 8,
+      "window_edge": "left"
+    },
+    "left_rear_quarter": {
+      "seed": [
+        180,
+        900
+      ],
+      "rotation_cw": 90,
+      "inset": 8
+    },
+    "right_rear_quarter": {
+      "seed": [
+        844,
+        900
+      ],
+      "rotation_cw": 270,
+      "inset": 8
+    },
+    "left_rail": {
+      "seed": [
+        288,
+        174
+      ],
+      "rotation_cw": 90,
+      "inset": 3
+    },
+    "right_rail": {
+      "seed": [
+        738,
+        174
+      ],
+      "rotation_cw": 270,
+      "inset": 3
+    },
+    "left_mirror": {
+      "seed": [
+        270,
+        450
+      ],
+      "rotation_cw": 90,
+      "inset": 4
+    },
+    "right_mirror": {
+      "seed": [
+        755,
+        450
+      ],
+      "rotation_cw": 270,
+      "inset": 4
+    },
+    "rear_center": {
+      "seed": [
+        512,
+        850
+      ],
+      "rotation_cw": 0,
+      "inset": 6,
+      "placement_box": [
+        0.25,
+        0.72,
+        0.75,
+        0.98
+      ]
+    },
+    "rear_bumper": {
+      "seed": [
+        512,
+        970
+      ],
+      "rotation_cw": 0,
+      "inset": 4
+    }
+  }
+}

@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="docs/assets/hero.svg" alt="TeslaSkin — 用文字制作 Model Y 车机皮肤" width="100%" />
+  <img src="docs/assets/hero.svg" alt="TeslaSkin — 用文字制作 Model Y 和 Model 3 车机皮肤" width="100%" />
 </p>
 
 <p align="center">
-  <strong>一句话，让你的 Model Y 换上喜欢的皮肤。</strong><br />
+  <strong>一句话，让你的 Tesla 换上喜欢的皮肤。</strong><br />
   不用提供参考图，告诉它主题，剩下的设计交给 TeslaSkin。
 </p>
 
 <p align="center">
   <a href="https://github.com/isunky/TeslaSkin/releases/latest"><img src="https://img.shields.io/github/v/release/isunky/TeslaSkin?style=flat-square&amp;labelColor=17232d&amp;color=e9b77f" alt="最新版本" /></a>
-  <img src="https://img.shields.io/badge/Model_Y-车机皮肤-e9b77f?style=flat-square&amp;labelColor=17232d" alt="Model Y 车机皮肤" />
+  <img src="https://img.shields.io/badge/Model_Y_%26_Model_3-车机皮肤-e9b77f?style=flat-square&amp;labelColor=17232d" alt="Model Y 和 Model 3 车机皮肤" />
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-9daab5?style=flat-square&amp;labelColor=17232d" alt="Apache 2.0" /></a>
 </p>
 
@@ -38,7 +38,7 @@
 描述你想要的主题即可，例如：
 
 ```text
-用 $tesla-skin 生成一款橘猫主题皮肤。
+用 $tesla-skin 生成一款 Model 3 橘猫主题皮肤。
 ```
 
 TeslaSkin 会自动补充配色、图案和细节，生成后还可以继续说：
@@ -47,7 +47,7 @@ TeslaSkin 会自动补充配色、图案和细节，生成后还可以继续说�
 颜色再淡一点，只修改引擎盖。
 ```
 
-目前适配内置白版对应的旧款 Model Y。生成的图片通过文件检查后，仍需在 App 和车辆上确认展示效果。
+支持内置白版对应的 Model Y 和 Model 3；不指定车型时会分别生成两款皮肤。生成的图片通过文件检查后，仍需在 App 和车辆上确认展示效果。
 
 ## 作品示例
 
