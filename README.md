@@ -72,13 +72,28 @@ TeslaSkin 会自动补充配色、图案和细节，生成后还可以继续说�
     <td align="center"><a href="examples/model-y/parrot.png"><img src="examples/model-y/parrot.png" alt="鹦鹉主题皮肤成品展开图" width="420" /></a></td>
     <td align="center"><a href="examples/model-y/superwings.png"><img src="examples/model-y/superwings.png" alt="超级飞侠主题皮肤成品展开图" width="420" /></a></td>
   </tr>
+  <tr>
+    <td width="50%" align="center"><strong>萌可</strong><br /><code>做一套Model Y萌可主题的皮肤</code></td>
+    <td width="50%" align="center"><strong>五月天 · 参考图创作</strong><br /><code>参考图片重新做一套五月天主题的皮肤</code></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="examples/model-y/teenieping.png"><img src="examples/model-y/teenieping.png" alt="萌可 Model Y 主题皮肤成品展开图" width="420" /></a></td>
+    <td align="center"><a href="examples/model-y/mayday.png"><img src="examples/model-y/mayday.png" alt="五月天橙黑赛车风 Model Y 皮肤成品展开图" width="420" /></a></td>
+  </tr>
 </table>
 
 ### Model 3
 
-**超级飞侠** · 原始提示词：`用现有素材做一套model 3 超级飞侠的主题皮肤。`，随后调整车头和车尾的对称性。
-
-[![超级飞侠 Model 3 皮肤成品展开图](examples/model-3/superwings.png)](examples/model-3/superwings.png)
+<table>
+  <tr>
+    <td width="50%" align="center"><strong>超级飞侠</strong><br /><code>用现有素材做一套model 3 超级飞侠的主题皮肤。</code><br />随后调整车头和车尾的对称性。</td>
+    <td width="50%" align="center"><strong>五月天 · 参考图创作</strong><br /><code>参考图片重新做一套五月天主题的皮肤</code></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="examples/model-3/superwings.png"><img src="examples/model-3/superwings.png" alt="超级飞侠 Model 3 皮肤成品展开图" width="420" /></a></td>
+    <td align="center"><a href="examples/model-3/mayday.png"><img src="examples/model-3/mayday.png" alt="五月天橙黑赛车风 Model 3 皮肤成品展开图" width="420" /></a></td>
+  </tr>
+</table>
 
 ---
 
