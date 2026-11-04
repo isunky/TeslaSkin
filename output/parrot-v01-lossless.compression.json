@@ -1,7 +1,0 @@
-{
-  "method": "zopflipng lossless",
-  "input_bytes": 1033184,
-  "output_bytes": 994788,
-  "rgba_pixel_identical": true,
-  "alpha_preserved": true
-}

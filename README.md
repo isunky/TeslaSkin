@@ -53,24 +53,32 @@ TeslaSkin 会自动补充配色、图案和细节，生成后还可以继续说�
 
 以下提示词保留用户的原始输入；图片均为最终皮肤展开图。文件检查已通过，App 和实车效果待确认。
 
+### Model Y
+
 <table>
   <tr>
     <td width="50%" align="center"><strong>Hello Kitty</strong><br /><code>生成一款helloKetty的皮肤</code></td>
     <td width="50%" align="center"><strong>橘猫</strong><br /><code>生成橘猫主题皮肤</code></td>
   </tr>
   <tr>
-    <td align="center"><a href="output/hello-kitty-v02.png"><img src="output/hello-kitty-v02.png" alt="Hello Kitty 主题皮肤成品展开图" width="420" /></a></td>
-    <td align="center"><a href="output/orange-cat-v05.png"><img src="output/orange-cat-v05.png" alt="橘猫主题皮肤成品展开图" width="420" /></a></td>
+    <td align="center"><a href="examples/model-y/hello-kitty.png"><img src="examples/model-y/hello-kitty.png" alt="Hello Kitty 主题皮肤成品展开图" width="420" /></a></td>
+    <td align="center"><a href="examples/model-y/orange-cat.png"><img src="examples/model-y/orange-cat.png" alt="橘猫主题皮肤成品展开图" width="420" /></a></td>
   </tr>
   <tr>
     <td width="50%" align="center"><strong>鹦鹉</strong><br /><code>生成鹦鹉主题皮肤</code></td>
     <td width="50%" align="center"><strong>超级飞侠</strong><br /><code>生成超级飞侠主题皮肤</code></td>
   </tr>
   <tr>
-    <td align="center"><a href="output/parrot-v01-lossless.png"><img src="output/parrot-v01-lossless.png" alt="鹦鹉主题皮肤成品展开图" width="420" /></a></td>
-    <td align="center"><a href="output/superwings-v01.png"><img src="output/superwings-v01.png" alt="超级飞侠主题皮肤成品展开图" width="420" /></a></td>
+    <td align="center"><a href="examples/model-y/parrot.png"><img src="examples/model-y/parrot.png" alt="鹦鹉主题皮肤成品展开图" width="420" /></a></td>
+    <td align="center"><a href="examples/model-y/superwings.png"><img src="examples/model-y/superwings.png" alt="超级飞侠主题皮肤成品展开图" width="420" /></a></td>
   </tr>
 </table>
+
+### Model 3
+
+**超级飞侠** · 原始提示词：`用现有素材做一套model 3 超级飞侠的主题皮肤。`，随后调整车头和车尾的对称性。
+
+[![超级飞侠 Model 3 皮肤成品展开图](examples/model-3/superwings.png)](examples/model-3/superwings.png)
 
 ---
 
