@@ -1,7 +1,7 @@
 ---
 name: tesla-skin
 metadata:
-  version: 0.1.7
+  version: 0.2.0
 description: 输入一句创意，自动丰富设计细节并生成连贯的 Model Y 和 Model 3 车机皮肤。适用于内置白版对应的 Tesla Paint Shop 车型。
 ---
 
