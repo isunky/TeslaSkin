@@ -51,7 +51,7 @@ TeslaSkin 会自动补充配色、图案和细节，生成后还可以继续说�
 
 ## 作品示例
 
-以下提示词保留用户的原始输入；图片均为最终皮肤展开图。文件检查已通过，App 和实车效果待确认。
+以下提示词保留用户的原始输入；每款展示最新版本的皮肤展开图。标为“候选”的作品仍有图案或接缝细节待确认；所有作品的 App 和实车效果均待验证。
 
 ### Model Y
 
@@ -80,6 +80,38 @@ TeslaSkin 会自动补充配色、图案和细节，生成后还可以继续说�
     <td align="center"><a href="examples/model-y/teenieping.png"><img src="examples/model-y/teenieping.png" alt="萌可 Model Y 主题皮肤成品展开图" width="420" /></a></td>
     <td align="center"><a href="examples/model-y/mayday.png"><img src="examples/model-y/mayday.png" alt="五月天橙黑赛车风 Model Y 皮肤成品展开图" width="420" /></a></td>
   </tr>
+  <tr>
+    <td width="50%" align="center"><strong>特警</strong><br /><code>做一套特警主题的皮肤</code></td>
+    <td width="50%" align="center"><strong>风暴战车</strong><br /><code>做一套金属质感酷炫风暴战车主题的皮肤</code></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="examples/model-y/swat.png"><img src="examples/model-y/swat.png" alt="特警 Model Y 皮肤展开图" width="420" /></a></td>
+    <td align="center"><a href="examples/model-y/storm.png"><img src="examples/model-y/storm.png" alt="风暴战车 Model Y 皮肤展开图" width="420" /></a></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><strong>包警长 · 候选</strong><br /><code>做一套超级飞侠包警长主题的皮肤</code></td>
+    <td width="50%" align="center"><strong>露探长 · 候选</strong><br /><code>做一套全新风格的超级飞侠露探长主题的皮肤</code></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="examples/model-y/paul.png"><img src="examples/model-y/paul.png" alt="包警长 Model Y 皮肤展开图" width="420" /></a></td>
+    <td align="center"><a href="examples/model-y/lucie.png"><img src="examples/model-y/lucie.png" alt="露探长 Model Y 皮肤展开图" width="420" /></a></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><strong>五月天 · 粉蓝卡丁车</strong><br /><code>再做一个五月天痛车主题的皮肤。</code></td>
+    <td width="50%" align="center"><strong>五月天 · 海浪</strong><br /><code>再根据这个图片做一套五月天痛车主题皮肤</code></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="examples/model-y/mayday-candy.png"><img src="examples/model-y/mayday-candy.png" alt="五月天 · 粉蓝卡丁车 Model Y 皮肤展开图" width="420" /></a></td>
+    <td align="center"><a href="examples/model-y/mayday-wave.png"><img src="examples/model-y/mayday-wave.png" alt="五月天 · 海浪 Model Y 皮肤展开图" width="420" /></a></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><strong>五月天 · 成名在望 · 候选</strong><br /><code>再做一套五月天主题皮肤，尽可能参考图片的布局和图案。</code></td>
+    <td width="50%"></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="examples/model-y/mayday-fame.png"><img src="examples/model-y/mayday-fame.png" alt="五月天 · 成名在望 Model Y 皮肤展开图" width="420" /></a></td>
+    <td></td>
+  </tr>
 </table>
 
 ### Model 3
@@ -92,6 +124,38 @@ TeslaSkin 会自动补充配色、图案和细节，生成后还可以继续说�
   <tr>
     <td align="center"><a href="examples/model-3/superwings.png"><img src="examples/model-3/superwings.png" alt="超级飞侠 Model 3 皮肤成品展开图" width="420" /></a></td>
     <td align="center"><a href="examples/model-3/mayday.png"><img src="examples/model-3/mayday.png" alt="五月天橙黑赛车风 Model 3 皮肤成品展开图" width="420" /></a></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><strong>特警</strong><br /><code>做一套特警主题的皮肤</code></td>
+    <td width="50%" align="center"><strong>风暴战车</strong><br /><code>做一套金属质感酷炫风暴战车主题的皮肤</code></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="examples/model-3/swat.png"><img src="examples/model-3/swat.png" alt="特警 Model 3 皮肤展开图" width="420" /></a></td>
+    <td align="center"><a href="examples/model-3/storm.png"><img src="examples/model-3/storm.png" alt="风暴战车 Model 3 皮肤展开图" width="420" /></a></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><strong>包警长 · 候选</strong><br /><code>做一套超级飞侠包警长主题的皮肤</code></td>
+    <td width="50%" align="center"><strong>露探长 · 候选</strong><br /><code>做一套全新风格的超级飞侠露探长主题的皮肤</code></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="examples/model-3/paul.png"><img src="examples/model-3/paul.png" alt="包警长 Model 3 皮肤展开图" width="420" /></a></td>
+    <td align="center"><a href="examples/model-3/lucie.png"><img src="examples/model-3/lucie.png" alt="露探长 Model 3 皮肤展开图" width="420" /></a></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><strong>五月天 · 粉蓝卡丁车</strong><br /><code>再做一个五月天痛车主题的皮肤。</code></td>
+    <td width="50%" align="center"><strong>五月天 · 海浪</strong><br /><code>再根据这个图片做一套五月天痛车主题皮肤</code></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="examples/model-3/mayday-candy.png"><img src="examples/model-3/mayday-candy.png" alt="五月天 · 粉蓝卡丁车 Model 3 皮肤展开图" width="420" /></a></td>
+    <td align="center"><a href="examples/model-3/mayday-wave.png"><img src="examples/model-3/mayday-wave.png" alt="五月天 · 海浪 Model 3 皮肤展开图" width="420" /></a></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><strong>五月天 · 成名在望 · 候选</strong><br /><code>再做一套五月天主题皮肤，尽可能参考图片的布局和图案。</code></td>
+    <td width="50%"></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="examples/model-3/mayday-fame.png"><img src="examples/model-3/mayday-fame.png" alt="五月天 · 成名在望 Model 3 皮肤展开图" width="420" /></a></td>
+    <td></td>
   </tr>
 </table>
 
