@@ -40,7 +40,7 @@ brief 用简短自然语言保存为同名 `.brief.md`，包含“用户明确�
 
 ## 整体设计优先
 
-先确定一个主要视觉、连接部件的色块/线条及有疏密变化的纹样。通过同一装饰系统的大小、重叠和留白形成统一关系；避免所有部件都以相同大小、相同位置摆同一图标。用户要求丰富时，可用连贯印花、丝带、花纹和局部留白；用户要求极简时减少元素，但仍保留整体关系。不能用“加更多随机小图标”代替构图。
+先按 [art-direction.md](art-direction.md) 定义侧面重心、车身大色块及留白，再据此选择连续画稿分组和独立图层。需要沿两扇门延续的图案应先在同一画稿中确定位置和大小，再映射到部件组；仅在确有独立调整需求时拆层。
 
 脸部和文字不能意外跨缝或被裁掉；装饰背景、色带、重复纹样可以延伸到部件边缘并有意裁切。安全边距只保护需要完整阅读的主体，不应导致全车背景空白。主图可以与背景形成适度叠压，而不是每个主体外围都留一圈机械空白。
 
@@ -63,24 +63,19 @@ brief 用简短自然语言保存为同名 `.brief.md`，包含“用户明确�
   "base_color": "#fff2df",
   "backgrounds": [
     {
-      "image": "side-print.png",
+      "image": "left-side-print.png",
       "parts": ["left_front_fender", "left_front_door", "left_rear_door", "left_rear_quarter"],
       "rotation_cw": 90
     },
     {
-      "image": "side-print.png",
+      "image": "right-side-print.png",
       "parts": ["right_front_fender", "right_front_door", "right_rear_door", "right_rear_quarter"],
-      "rotation_cw": 270,
-      "mirror": true
+      "rotation_cw": 270
     }
   ],
   "parts": {
-    "hood": [{"image": "motif.png", "scale": 0.85}],
-    "left_front_door": [{"image": "motif.png", "scale": 0.75}],
-    "right_front_door": [{"image": "motif.png", "scale": 0.75}],
-    "left_rear_door": [{"image": "paw.png", "scale": 0.35}],
-    "right_rear_door": [{"image": "paw.png", "scale": 0.35}],
-    "rear_center": [{"image": "paw.png", "scale": 0.35}]
+    "hood": [{"image": "hood-tabby-stripes.png", "scale": 0.85}],
+    "rear_center": [{"image": "rear-tail-curve.png", "scale": 0.5}]
   }
 }
 ```
